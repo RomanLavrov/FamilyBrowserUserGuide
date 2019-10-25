@@ -1,0 +1,27 @@
+{
+    "remotePath": "./www/building360.at/FamilyBrowser",
+    "host": "sl1093.web.hostpoint.ch",
+    "username": "roman.lavrov@building360.ch",
+    "password": "PassHHM_201",
+    "port": 21,
+    "secure": false,
+    "protocol": "ftp",
+    "uploadOnSave": false,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "agent": null,
+    "allow": [],
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store"
+    ],
+    "generatedFiles": {
+        "extensionsToInclude": [
+            ""
+        ],
+        "path": ""
+    }
+}
