@@ -1,0 +1,329 @@
+@font-face {
+    font-family: 'PraxisNext-Bold';
+    src: url('/FamilyBrowser/fonts/37A973_A_0.woff') format('woff2'), url('/fonts/37A973_A_0.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PraxisNext-Light';
+    src: url('/FamilyBrowser/fonts/37A973_0_0.woff2') format('woff2'), url('/fonts/37A973_A_0.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    font-family: 'PraxisNext-Light';
+    padding-left: 0px;
+    margin-top: 8px;    
+}
+
+#content {
+    min-height: 800px;
+    min-width: 320px;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+    border: 0px;
+    margin: 0;
+    padding: 1em;
+    margin-right: 15px;    
+}
+
+#header-area {
+    margin-bottom: 8px;
+    /*text-decoration: #C7D301;*/
+}
+
+#header-area a {
+    text-decoration: none;
+}
+
+#navigation {
+    min-width: 270px;
+    padding-right: 0px;
+    padding-left:15px;
+}
+
+#logo-building {
+    margin-top: 5px;
+    padding-left: 30px;
+    margin-bottom: 0;
+}
+
+#logo-browser {
+    margin-left: 0;
+    text-align: right;
+    display: inline-block;
+}
+
+.accordion {
+    font-family: "PraxisNext-Light";
+    font-weight: bold;
+    font-size: 14pt;
+    background-color: #C7D301;
+    color: black;
+    cursor: pointer;
+    margin-top: 0px;
+    padding-left: 15px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    height: 38px;
+}
+
+.active,
+.accordion:hover {
+    background-color: #274b59;
+    color: white;
+    
+}
+
+.article-header {
+    font-size: 16pt;
+    font-weight: 600;
+    padding-left: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: inline-block;
+}
+
+.article-content {
+    font-size: 12pt;
+    padding-left: 80px;
+    padding-right: 100px;
+    text-align: justify;
+}
+
+.btn-rounded {
+    margin-top: 30px;
+    height: 60px;
+    width: 240px;
+    background: green;
+    color: white;
+    font-size: 16pt;
+    padding: 15px;
+    border-radius: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-rounded:hover {
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-lang{
+    width:30px;
+    margin-top:20px;
+    display: inline-block;
+    color:#274b59;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn-lang:hover{
+
+    background-image: radial-gradient(#C7D301, white) ;
+    font-weight: bold;
+}
+
+.dropbtn {
+    margin-top: 15px;
+    height: 34px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    color: black;
+    font-size: 16px;
+    border: none;
+    font-family: "PraxisNext-Light";
+    font-size: 14pt;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 80%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content div {
+    width: auto;
+    cursor: pointer;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: "PraxisNext-Light";
+    font-size: 12pt;
+}
+
+.dropdown-content div:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: #274b59;
+    font-weight: bold;
+    background-color: #C7D301;
+}
+#table-vendor th, 
+#table-categories th
+{
+    background-color:#274b59;
+}
+.embeded-video {
+    width: 640px;
+    height: 360px;
+    text-align: center;
+    background: lightblue;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 0;
+}
+
+.illustration {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.line {
+    color: red;
+    border-color: #274b59;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.nav-button {
+    width: 100%;
+    text-decoration: none;
+    font-family: "PraxisNext-Light";
+    font-size: 14pt;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    display: inline-block;
+    cursor: pointer;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 20px;
+}
+
+.nav-button:hover {
+    color: #274b59;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: left;
+    background: #C7D301;
+    padding-left: 20px;
+}
+
+
+
+.panel {
+    font-family: "PraxisNext-Light";
+    font-size: 14pt;
+    padding-left: 0px;
+    background-color: white;
+    border-bottom: greenyellow;
+    display: none;
+    overflow: hidden;
+    line-height: 1.1;
+    margin-bottom: 0px;
+}
+
+.header-title {
+    font-family: "PraxisNext-LIGHT";
+    font-size: 28pt;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 20px;
+    color: #274b59;
+}
+
+.notFound {
+    width: 50%;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.img-faq{
+    max-width: 45em;
+    max-height: 45em;
+}
+
+ol.faq-bold-list > li {
+    margin-left: -1em;
+    list-style-type:none;
+    counter-increment:item;
+}
+
+ol.faq-bold-list > li:before {
+    display:inline-block;
+    width:1.5em;
+    padding-right:0.5em;
+    font-weight:bold;
+    text-align:left;
+    content:counter(item) ".";
+}
+
+.img-icon{
+    display: inline-block;
+    width:20px; 
+    height:15px;
+}
+
+.expanding-content{
+    position: relative;
+    height: 17em;
+    overflow: hidden;
+}
+
+.expanding-button {
+    display: block;
+    cursor: hand;
+    background: rgba(39,75,89, 1);
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3em;
+    cursor: hand;
+    width: 6em;
+    position: relative;
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 15;
+}
+
+.expanding-button:hover{
+
+    color:greenyellow;
+
+}
+
+.article-element-description{
+    background: lightcoral;
+}
+
+/* background: rgba(39,75,89, 0.7); */
