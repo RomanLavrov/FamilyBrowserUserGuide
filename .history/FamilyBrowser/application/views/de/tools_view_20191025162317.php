@@ -23,7 +23,7 @@
             unnötig.
       </p>
 </div>
-<!--
+<>
 <div class="article-header">
       <img style="box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.55);" src="/FamilyBrowser/images/OttoFischerButton.png" alt="OttoFischer" />
 </div>
@@ -148,7 +148,7 @@
                         Überprüfung.</p>
             </div>
       </div>
-      -->
+
 
 
 </div>

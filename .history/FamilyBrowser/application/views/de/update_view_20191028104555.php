@@ -53,7 +53,7 @@
             <p>Die Version Ausgewählt in den Einstellungen wird oben im Browserfenster der Familie angezeigt:</p>
       </div>
       <div class="row">
-            <div class="col-md-5" style="min-width:570px">
+            <div class="col-md-5" style="min-width:480px">
                   <img style="margin-left:0" class="illustration" src="/FamilyBrowser/images/FamiliesUpdate_de.png"
                         alt="" />
             </div>

@@ -61,9 +61,8 @@
             <button class="accordion">Inserting Families</button>
             <div class="panel">
                 <a class="nav-button" target="_self" data-name="Interface" href="/FamilyBrowser/en/Interface">Interface</a>
-                <a class="nav-button" target="_self" data-name="Basic_functions" href="/FamilyBrowser/en/Basic_functions">Families insertion</a>  
                 <a class="nav-button" target="_self"  data-name="Tools" href="/FamilyBrowser/en/Tools">Tools</a>
-                            
+                <a class="nav-button" target="_self" data-name="Basic_functions" href="/FamilyBrowser/en/Basic_functions">Basic functions</a>               
             </div>
         </div>
 

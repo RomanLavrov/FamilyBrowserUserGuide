@@ -53,7 +53,7 @@
             <p>Die Version Ausgewählt in den Einstellungen wird oben im Browserfenster der Familie angezeigt:</p>
       </div>
       <div class="row">
-            <div class="col-md-5" style="min-width:570px">
+            <div class="col-md-5" style="min-width:480px">
                   <img style="margin-left:0" class="illustration" src="/FamilyBrowser/images/FamiliesUpdate_de.png"
                         alt="" />
             </div>
@@ -66,9 +66,9 @@
                         Sie zu Einstellungen, stellen Sie die bevorzugte Version ein und wiederholen Sie den
                         obererwähnten Vorgang.</p>
                   <p>Vorsicht: die Version 0.9.0 hat keine Vorschaubilder.</p>
-                  <p>Die Typen in den Familien können sich unter verschiedenen Versionen ändern. Wenn Sie die Version
-                        1.0.0 verwendet haben und nach den Typ in der Version 2.0.0 nicht finden können - dann müssen
-                        Sie die Version 1.0.0 in den Einstellungen auswählen oder andere Elemente verwenden.</p>
+                  <p>Die Arten in den Familien können variieren. Wenn Sie die Version 1.0.0 verwendet haben und den Typ
+                        in der Version 2.0.0 nicht finden können - dann können Sie
+                        müssen die Version 1.0.0 in den Einstellungen einstellen oder andere Elemente verwenden.</p>
             </div>
       </div>
 </div>
