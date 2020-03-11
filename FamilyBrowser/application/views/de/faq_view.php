@@ -115,4 +115,8 @@
       </p>
 </div>
 
+<div class="article-header" >Wie funktioniert Silent-Installation vom Family Browser?</div>
+<div class="article-content" style="margin-bottom: 1em">
+Installieren Sie auf einem Client das Produkt ganz normal von Hand. Benutzen Sie dafür als Vornamen «Firma» und als Nachname Ihren Firmennamen und geben Sie eine gültige Mailadresse Ihrer Firma an, an welche unsere Registriermails bei Ihnen geschickt werden können. Nach der Installation finden Sie im Ordner %Temp% eine Datei Setup.cfg. Nehmen Sie diese und legen Sie die Datei zu Ihrem Installationspaket. Bei zukünftigen Installationen ist nun dank des beigelegten Setup.cfg kein User Input mehr nötig. Was Sie aber sicherstellen müssen: Der User unter welchem die Installation durchgeführt wird muss Zugriff auf folgende Adresse haben: <a href='https://MuMZ.ch/liz'>https://MuMZ.ch/liz</a>
+</div>
 <script src="/FamilyBrowser/js/faq_view.js"></script>

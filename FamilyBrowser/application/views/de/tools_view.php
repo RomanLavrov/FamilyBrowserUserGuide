@@ -1,15 +1,17 @@
 <div class="article-header">Toolbox</div>
 <div class="article-content">
       <p>
-            Ab der Version 2.0.4 hat der Family Browser neue Funktionen, die die Revit-Möglichkeiten 
+            Ab der Version 2.0.4 hat der Family Browser neue Funktionen, die die Revit-Möglichkeiten
             erweitern und die Zusammenarbeit mit anderen Diensten ermöglichen.
       </p>
 </div>
 
 <div class="article-header">
-      <img style="box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.55);"src="/FamilyBrowser/images/LocationPointButton_de.png" alt="LocationPoint" /></div>
+      <img style="box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.55);" src="/FamilyBrowser/images/LocationPointButton_de.png" alt="LocationPoint" /></div>
 <div class="article-content">
-      
+      <iframe class="embeded-video" src="https://www.youtube.com/embed/M_5dVhfTwzQ" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"> </iframe>
+
+
       <p>
             Diese Funktion arbeitet nur mit Familien ab Version 2.0.0.
       </p>

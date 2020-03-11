@@ -40,7 +40,7 @@
             <p>At first, please select version, you want to use in project in <a
                         href="/FamilyBrowser/en/Settings">Settings</a>.</p>
             <p>To update families version within the project you need to press button
-                  <img style="height:64px" src="/FamilyBrowser/images/FamiliesUpdateButton_en.PNG" />. This will collect
+                  <img style="height:64px" src="/FamilyBrowser/images/FamiliesUpdateButton_en.png" />. This will collect
                   all used families in project and put them into list in panel. Each family, created by BUILDing360 will
                   have preview image, description and version. You can filter Families by version using drop-down
                   filter.
@@ -48,11 +48,11 @@
             <p>Selected in settings version will be appear on the top of Family browser panel:</p>
       </div>
       <div class="row">
-            <div class="col-md-5" style="min-width:570px">
+            <div class="col-md" style="min-width:570px">
                   <img style="margin-left:0" class="illustration" src="/FamilyBrowser/images/FamiliesUpdate.png"
                         alt="" />
             </div>
-            <div class="col-md-6">
+            <div class="col-md" style="min-width:400px">
                   <p> By pressing "Change Version to V.V.V" - you can download this families into current project.</p>
                   <p>All custom properties will be transferred automatically during update process.</p>
                   <p>Families version can be upgraded and downgraded. For this go to Settings, set preferred version and

@@ -53,11 +53,11 @@
             <p>Die Version Ausgewählt in den Einstellungen wird oben im Browserfenster der Familie angezeigt:</p>
       </div>
       <div class="row">
-            <div class="col-md-5" style="min-width:570px">
+            <div class="col-md" style="min-width:570px">
                   <img style="margin-left:0" class="illustration" src="/FamilyBrowser/images/FamiliesUpdate_de.png"
                         alt="" />
             </div>
-            <div class="col-md-6">
+            <div class="col-md" style="min-width:400px">
                   <p>Durch Drücken von "Versionswechsel auf V.V.V" können Sie die Familien der ausgewählten Version in
                         das aktuelle Projekt herunterladen.</p>
                   <p>Alle benutzerdefinierten Eigenschaften werden während des Aktualisierungsvorgangs automatisch
