@@ -4,71 +4,89 @@
 <div class="article-content" style="margin-bottom:-15px;">
       <p>
             <img src="/FamilyBrowser/images/UpdateFamily.png" alt="">
-            Aktualisierung ermöglicht die neueste Version von Add-In-Komponenten zu erhalten:
+                  Aktualisierung ermöglicht die neueste Version von Add-In-Komponenten zu erhalten:
             <ul>
-                  <li>1. IFC-Export</li>
-                  <li>2. Projektvorlage</li>
-                  <li>3. Executive-Paket</li>
+                  <li>IFC-Export</li>
+                  <li>Projektvorlage</li>
+                  <li>Executive-Paket</li>
             </ul>
             <p>
-                  Komponenten werden separat aktualisiert, falls eine neuere Version verfügbar ist. Um das
-                  Executive-Paket zu
-                  aktualisieren, muss man zuerst Revit schliessen.
+                  Solche Komponenten wie IFC-Export und Projektvorlage können separat ohne .msi-Datei über den Knopf 
+                  <a href="/FamilyBrowser/de/Interface#template-id">"Import BUILDing360 Template"</a> 
+                  aktualisiert werden. Schließen Sie Revit, um das Executive-Paket zu aktualisieren.
             </p>
             <p>
-                  Die neuen oder korrigierten Familien werden im Family Browser automatisch erscheinen. Falls eine neue
-                  Version vom Bauteilkatalog zur Verfügung steht, bekommen Sie eine Meldung. Die neue Version kann dann
-                  über den Knopf "Building360 aktualisieren" heruntergeladen werden.
+                  Neue oder aktualisierte Familien gelangen automatisch in den Family Browser. Wenn eine neue Version des Plugins verfügbar 
+                  ist, werden Sie informiert. Eine Aktualisierung kann kritisch sein, deshalb sollen Sie die aktuellste .msi-Datei so schnell 
+                  wie möglich herunterladen. Eine neue Version kann über den Knopf "Plugin-Update" oder hier heruntergeladen werden.
             </p>
       </p>
 </div>
 <div class="article-header">
-      Aktualisierung von der Version 1.0.0
+      Probleme mit dem Update oder Aktualisierungen von früheren Versionen als 2.0.8 
 </div>
 <div class="article-content" style="margin-bottom:-15px;">
       <p>
-            Wenn Sie FamilyBrowser Version 1.0.0 verwenden, müssen Sie das Update <a
-                  href="http://software.mum.ch/Plugins/">hier</a> herunterladen.
+            Wenn es Probleme mit der Aktualisierung über den Knopf "Plugin-Update" gibt, sollten 
+            Sie Ihren aktuellen Revit Family Browser manuell 
+            <a href="https://support.microsoft.com/de-ch/help/4028054/windows-10-repair-or-remove-programs">deinstallieren</a>
+            und die .msi-Datei <a href="http://software.mum.ch/Plugins/">hier</a> herunterladen.
       </p>
       <p>
-            Inhalte über den internen Update-Button werden seit der Freigabe der Version 2.0.0 nicht mehr aktualisiert.
+            Wenn Sie Family Browser in einer Version unter 2.0.8 verwenden, wiederholen Sie bitte die oben beschriebenen Schritte.
+      </p>
+      <p>
+            <i>Inhalte (d.h. Familiendateien) werden über den internen Update-Knopf seit Version 2.0.0 nicht mehr aktualisiert.</i>
       </p>
 </div>
 
 <div class="article-header">Version der Familien aktualisieren</div>
 
 <div class="article-content" style="margin-bottom:-15px;">
-      <div>
-            <p>Wählen Sie zunächst unter <a href="/FamilyBrowser/de/Settings">Einstellungen</a> die Version aus, die Sie
-                  im Projekt verwenden möchten.</p>
-            <p>Um die Version der Familien innerhalb des Projekts zu aktualisieren, müssen Sie die Taste drücken
-                  <img style="height:64px" src="/FamilyBrowser/images/FamiliesUpdateButton_de.png" />. Dadurch werden
-                  gesammelt
-                  alle verwendeten Familien im Projekt und setzen sie in die Liste im Panel. Jede Familie, die von
-                  BUILDing360 gegründet wurde, wird
-                  haben Vorschaubild, Beschreibung und Version. Sie können Familien nach Version filtern, indem Sie das
-                  Dropdown-Menü verwenden.
-                  Filter.
-            </p>
-            <p>Die Version Ausgewählt in den Einstellungen wird oben im Browserfenster der Familie angezeigt:</p>
-      </div>
-      <div class="row">
-            <div class="col-md" style="min-width:570px">
-                  <img style="margin-left:0" class="illustration" src="/FamilyBrowser/images/FamiliesUpdate_de.png"
-                        alt="" />
+      <div class="d-flex justify-content-start">
+            <div class="p-2" style="padding-left:0px!important;">
+                  <div>
+                        <img class="version-img" src="/FamilyBrowser/images/FamiliesVersion_de_1a.png" />
+                        <div class="d-flex justify-content-center"> Fig. 1a </div>
+                        <img class="version-img" src="/FamilyBrowser/images/FamiliesVersion_de_1b.png" />
+                        <div class="d-flex justify-content-center"> Fig. 1b </div>
+                        <img class="version-img" src="/FamilyBrowser/images/FamiliesVersion_de_1c.png" />
+                        <div class="d-flex justify-content-center"> Fig. 1c </div>
+                  </div>
             </div>
-            <div class="col-md" style="min-width:400px">
-                  <p>Durch Drücken von "Versionswechsel auf V.V.V" können Sie die Familien der ausgewählten Version in
-                        das aktuelle Projekt herunterladen.</p>
-                  <p>Alle benutzerdefinierten Eigenschaften werden während des Aktualisierungsvorgangs automatisch
-                        übertragen.</p>
-                  <p>Die Version für Familien kann nicht nur aktualisiert, sondern auch herabgestuft werden. Dazu gehen
-                        Sie zu Einstellungen, stellen Sie die bevorzugte Version ein und wiederholen Sie den
-                        obererwähnten Vorgang.</p>
-                  <p>Vorsicht: die Version 0.9.0 hat keine Vorschaubilder.</p>
-                  <p>Die Typen in den Familien können sich unter verschiedenen Versionen ändern. Wenn Sie die Version
-                        1.0.0 verwendet haben und nach den Typ in der Version 2.0.0 nicht finden können - dann müssen
-                        Sie die Version 1.0.0 in den Einstellungen auswählen oder andere Elemente verwenden.</p>
+            <div class="p-2" style="padding-left:3em!important;">
+                  <p>Wählen Sie zuerst die Version der Familien aus, die Sie in den <a href="/FamilyBrowser/de/Settings">Einstellungen</a> 
+                  verwenden möchten.</p>
+                  <p>Um die Version der Familien innerhalb des Projekts zu ändern, müssen Sie den Knopf drücken 
+                        <img style="height:64px" src="/FamilyBrowser/images/FamiliesUpdateButton_de.png" />. 
+                        Dadurch werden alle im Projekt verwendeten Familientypen gesammelt und im Hauptfenster 
+                        des Familienbrowsers angezeigt. Dieser Vorgang kann bei großen Projekten einige Zeit dauern, 
+                        kann aber jederzeit abgebrochen werden. Jeder Familientyp, der von BUILDing360 erstellt wurde, 
+                        hat ein Vorschaubild, eine Beschreibung und eine Version (Abb. 1a). Sie können die Familien nach 
+                        Version mit Hilfe eines Drop-Down-Filters (Abb. 1b) oder über interne Parameter in der Suchleiste 
+                        (Abb. 1c) filtern.
+                  </p>
+                  <p>
+                        Sie können die gewünschten Familientypen für die Aktualisierung auswählen und auf den Knopf "Aktualisiere" klicken 
+                        (vergessen Sie nicht, vor der Aktualisierung die gewünschte Version in den 
+                        <a href="/FamilyBrowser/de/Settings">Einstellungen</a> auszuwählen). Danach werden nur 
+                        die ausgewählten Familien heruntergeladen und bestehende Familien werden aktualisiert. Nach erfolgreicher Versionsänderung 
+                        werden alle Projektfamilientypen noch einmal gesammelt, um die Änderungen und aktuelle Familienversionen anzuzeigen. 
+                  </p>
+                  <p>
+                        Durch Drücken von "Alle aktualisieren" oder durch Auswahl des Kontrollkästchens neben diesem Knopf und 
+                        anschließendes Drücken, können Sie die Version aller Familien innerhalb des aktuellen Projekts ändern. 
+                  </p>
+                  <p>Alle benutzerdefinierten Eigenschaften werden während dem Aktualisierungsvorgang automatisch übertragen und gehen nicht verloren.</p>
+                  <p>
+                        Die Familienversion kann entweder hoch- oder heruntergestuft werden. Wählen Sie einfach die bevorzugte Version in den 
+                        <a href="/FamilyBrowser/de/Settings">Einstellungen</a> und führen die Aktualisierung unter "Familien-Update" durch.
+                  </p>
+                  <p>
+                        Die in den Familien vorhandenen Typen können sich zwischen den verschiedenen Versionen unterscheiden. Wenn Sie 
+                        die Version 1.0.0 verwendet haben und einen bestimmten Typ in der Version 2.0.0 nicht finden können - müssen Sie 
+                        Version 1.0.0 in den Einstellungen wieder auswählen oder eine andere Familie verwenden.
+                  </p>
             </div>
       </div>
 </div>

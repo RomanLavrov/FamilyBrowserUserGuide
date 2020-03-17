@@ -45,7 +45,7 @@
                         alt="" />
             </div>
             <div class="col-md-5">
-                  On the "Location" tab you can switch between available families languages.
+                  On the "Location" tab you can switch between available content localizations and languages. 
             </div>
       </div>
 </div>
@@ -58,21 +58,21 @@
                         alt="" />
             </div>
             <div class="col-md-5">
-                  On the "Version" tab you can change families version that you want to use in your project.
-                  For each version you can see families release date and brief description of this version.
-                  There is a tool that allow to change all BUILDing360 families that used in current project to version
-                  selected in this setting tab. More information you can read <a href="/FamilyBrowser/en/Update">here</a>.
+            On the "Versions" tab it is possible to change families’ version separately for each system you want to use in your project. 
+            For all versions you can see families’ release date and brief description of this version as a tooltip on dropdown menu. 
+            Also there is a tool that gives an opportunity to change any of BUILDing360 families that were used in current project 
+            to version selected in this settings tab. More information you can read  <a href="/FamilyBrowser/en/Update">here</a>.
                   <p>
-                  Version difference:
+                  Version description:
                   </p>
                   <ul>
-                        <li>0.9.0 - initial version of generic electrical familes. Has no preview image.</li>
-                        <li>1.0.0 - electrical and HVAC families with preview image.</li>
+                        <li>0.9.0 - initial version of generic electrical families. This version doesn’t contain preview images.</li>
+                        <li>1.0.0 - Electrical and HVAC families with preview image.</li>
                         <li>2.0.0 - updated families with location point for laser-positioning on site.</li>
                   </ul>
                   <p>
-                        It is recommended to use the latest families version, unless your project is made with older
-                        version and you do not need to have extra parameters. Update process transfers custom properties between different type versions.
+                        It is recommended to use the latest families’ version, unless your project is made with older version and you do not wish to have extra parameters. 
+                        User’s custom properties will be transferred during the process of families version change.
                   </p>
             </div>
       </div>

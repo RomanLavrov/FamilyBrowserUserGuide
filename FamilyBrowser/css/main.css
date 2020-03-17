@@ -327,4 +327,9 @@ ol.faq-bold-list > li:before {
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
+.version-img {
+    max-width: 500px;
+    margin: 0.5em 0 0.5em 0;
+}
+
 /* background: rgba(39,75,89, 0.7); */

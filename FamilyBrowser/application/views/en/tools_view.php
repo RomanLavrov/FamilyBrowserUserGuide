@@ -10,7 +10,7 @@
             alt="LocationPoint" />
 </div>
 <div class="article-content">
-           
+      <iframe class="embeded-video" src="https://www.youtube.com/embed/M_5dVhfTwzQ" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen"   oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"> </iframe>
       <p>This tool works only with families version 2.0.0 and newer.</p>
       <p>Families have point required for transer its coordinates and placement in real buildings.</p>
       <p>Location point tool will insert in this point special family - GDP in accordance with element rotation

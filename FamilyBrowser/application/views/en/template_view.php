@@ -19,7 +19,7 @@
                 <a href="http://building360.ch"><img src="/FamilyBrowser/images/logo_building360.png" style="width: 95px" /></a>
             </div>
             <div class="col-md-9">
-                <a href="/FamilyBrowser/overview">
+                <a href="/FamilyBrowser/en/overview">
                     <div id='logo-browser'>
                         <img src="/FamilyBrowser/images/logo.png" style="width: 55px">
                     </div>
