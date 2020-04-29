@@ -332,4 +332,11 @@ ol.faq-bold-list > li:before {
     margin: 0.5em 0 0.5em 0;
 }
 
+.input-group-prepend{
+   width: 250px;
+}
+
+.input-group-prepend span{
+    width: 100%;
+}
 /* background: rgba(39,75,89, 0.7); */

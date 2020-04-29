@@ -65,9 +65,14 @@
                 <a class="nav-button" target="_self" data-name="Basic_functions" href="/FamilyBrowser/de/Basic_functions">Familien einfügen</a>    
                 <a class="nav-button" target="_self" data-name="Tools" href="/FamilyBrowser/de/Tools">Toolbox</a>           
             </div>
+
+            <button class="accordion">Familie beantragen</button>
+            <div class="panel">
+                <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order">Familie beantragen</a>
+            </div>
         </div>
 
-        <div class="col-md" style="padding:0px; margin-bottom:0px; margin-right"0px;>
+        <div class="col-md" style="padding:0px; margin-bottom:0px; margin-right:0px;">
             <div id="content"><?php include 'application/views/de/' . $content_view;?></div>
         </div>
     </div>
