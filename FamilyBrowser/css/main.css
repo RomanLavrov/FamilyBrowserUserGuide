@@ -15,7 +15,7 @@
 body {
     font-family: 'PraxisNext-Light';
     padding-left: 0px;
-    margin-top: 8px;    
+    margin-top: 8px;
 }
 
 #content {
@@ -25,7 +25,7 @@ body {
     border: 0px;
     margin: 0;
     padding: 1em;
-    margin-right: 15px;    
+    margin-right: 15px;
 }
 
 #header-area {
@@ -40,7 +40,7 @@ body {
 #navigation {
     min-width: 270px;
     padding-right: 0px;
-    padding-left:15px;
+    padding-left: 15px;
 }
 
 #logo-building {
@@ -76,7 +76,7 @@ body {
 .accordion:hover {
     background-color: #274b59;
     color: white;
-    
+
 }
 
 .article-header {
@@ -117,18 +117,18 @@ body {
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
-.btn-lang{
-    width:30px;
-    margin-top:20px;
+.btn-lang {
+    width: 30px;
+    margin-top: 20px;
     display: inline-block;
-    color:#274b59;
+    color: #274b59;
     text-align: center;
     cursor: pointer;
 }
 
-.btn-lang:hover{
+.btn-lang:hover {
 
-    background-image: radial-gradient(#C7D301, white) ;
+    background-image: radial-gradient(#C7D301, white);
     font-weight: bold;
 }
 
@@ -182,11 +182,12 @@ body {
     font-weight: bold;
     background-color: #C7D301;
 }
-#table-vendor th, 
-#table-categories th
-{
-    background-color:#274b59;
+
+#table-vendor th,
+#table-categories th {
+    background-color: #274b59;
 }
+
 .embeded-video {
     width: 640px;
     height: 360px;
@@ -267,33 +268,33 @@ body {
     display: block;
 }
 
-.img-faq{
+.img-faq {
     max-width: 45em;
     max-height: 45em;
 }
 
-ol.faq-bold-list > li {
+ol.faq-bold-list>li {
     margin-left: -1em;
-    list-style-type:none;
-    counter-increment:item;
+    list-style-type: none;
+    counter-increment: item;
 }
 
-ol.faq-bold-list > li:before {
-    display:inline-block;
-    width:1.5em;
-    padding-right:0.5em;
-    font-weight:bold;
-    text-align:left;
-    content:counter(item) ".";
-}
-
-.img-icon{
+ol.faq-bold-list>li:before {
     display: inline-block;
-    width:20px; 
-    height:15px;
+    width: 1.5em;
+    padding-right: 0.5em;
+    font-weight: bold;
+    text-align: left;
+    content: counter(item) ".";
 }
 
-.expanding-content{
+.img-icon {
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+}
+
+.expanding-content {
     position: relative;
     height: 17em;
     overflow: hidden;
@@ -302,7 +303,7 @@ ol.faq-bold-list > li:before {
 .expanding-button {
     display: block;
     cursor: hand;
-    background: rgba(39,75,89, 1);
+    background: rgba(39, 75, 89, 1);
     color: white;
     text-align: center;
     font-weight: bold;
@@ -316,15 +317,15 @@ ol.faq-bold-list > li:before {
     z-index: 15;
 }
 
-.expanding-button:hover{
+.expanding-button:hover {
 
-    color:greenyellow;
+    color: greenyellow;
 
 }
 
-.article-element-description{
+.article-element-description {
     background: lightcoral;
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 .version-img {
@@ -332,11 +333,34 @@ ol.faq-bold-list > li:before {
     margin: 0.5em 0 0.5em 0;
 }
 
-.input-group-prepend{
-   width: 250px;
+.input-group-prepend {
+    width: 250px;
 }
 
-.input-group-prepend span{
+.input-group-prepend span {
     width: 100%;
+    background: #274B59;
+    color: white;
 }
+
+.custom-file-input~.custom-file-label::after {
+    background-color: #274b59;
+    color: white;
+}
+
+#submitFamilyOrder {
+    display: block;
+    margin: 0 auto;
+    width: 40%;
+    height: 50px;
+    background-color: #274b59;
+    border: 0px;
+    border-radius: 10px;
+    ;
+}
+
+#submitFamilyOrder:hover {
+    box-shadow: 0px 4px 8px 4px #bbb;
+}
+
 /* background: rgba(39,75,89, 0.7); */

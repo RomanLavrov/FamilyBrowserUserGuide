@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <!DOCTYPE html>
 
 <head>
@@ -65,9 +65,14 @@
                 <a class="nav-button" target="_self"  data-name="Tools" href="/FamilyBrowser/en/Tools">Tools</a>
                             
             </div>
+
+            <button class="accordion">Families ordering</button>
+            <div class="panel">
+                <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order">Families ordering</a>
+            </div>
         </div>
 
-        <div class="col-md" style="padding:0px; margin-bottom:0px; margin-right"0px;>
+        <div class="col-md" style="padding:0px; margin-bottom:0px; margin-right:0px;">
             <div id="content"><?php include 'application/views/en/' . $content_view;?></div>
         </div>
     </div>
