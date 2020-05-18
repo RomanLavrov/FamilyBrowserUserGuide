@@ -1,7 +1,7 @@
-﻿<div style="margin: 0px 30px;">
+<div style="margin: 0px 30px;">
     <h3>BUILDing360 Family order form</h3>
 
-    <form id="orderForm">
+    <form id="orderForm" action = "/FamilyBrowser/de/Order/Submit" method="post" enctype="multipart/form-data">
         <br>
         <h4>Applicant</h4>
         <hr />

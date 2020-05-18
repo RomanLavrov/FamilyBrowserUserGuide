@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once("./application/models/model_orders.php");
 
 class Controller_Order extends Controller
@@ -20,9 +20,9 @@ class Controller_Order extends Controller
         }
 
         $this->model = new Order_Model;
-
+        print_r($order['mail']);
         $orderId = $this->model->createOrder($order);
-        $this->mailOrder($_POST['mail'], $orderId);
+        $this->mailOrder($order['mail'], $orderId);
         $this->mailManager($orderId);
         $this->view->orders = $this->model->getOrders();
         $this->view->generate('orderStatus_view.php', 'en/template_view.php');
@@ -110,7 +110,7 @@ class Controller_Order extends Controller
         </html>';
 
         $headers = array(
-            'From' => 'Family Browser BUILDing360',
+            'From' => 'no-reply@building360.ch',
             'Reply-To' => 'admin@building360.ch',
             'Content-type' => 'text/html',
             'X-Mailer' => 'PHP/' . phpversion()
@@ -156,7 +156,7 @@ class Controller_Order extends Controller
         ';
 
         $headers = array(
-            'From' => 'Family Browser BUILDing360',
+            'From' => 'no-reply@building360.ch',
             'Reply-To' => 'admin@building360.ch',
             'Content-type' => 'text/html',
             'X-Mailer' => 'PHP/' . phpversion()

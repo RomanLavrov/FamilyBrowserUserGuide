@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 require_once("./application/models/model_orders.php");
 
 class Controller_Order extends Controller
@@ -69,7 +69,7 @@ class Controller_Order extends Controller
         ini_set('sendmail_from', "no-reply@building360.ch");
         ini_set('password', 'nUK2E253ZJA-WG7');
 
-        $to = $mailAdress; // 'johny@example.com, sally@example.com'; 
+        $to = $mailAdress;// 'johny@example.com, sally@example.com'; 
         $subject = 'Familie bestellen BUILDing360'; //Your order was successfully added to system
 
         $message = '
@@ -110,7 +110,7 @@ class Controller_Order extends Controller
         </html>';
 
         $headers = array(
-            'From' => 'Family Browser BUILDing360',
+            'From' => 'no-reply@building360.ch',
             'Reply-To' => 'admin@building360.ch',
             'Content-type' => 'text/html',
             'X-Mailer' => 'PHP/' . phpversion()
@@ -156,7 +156,7 @@ class Controller_Order extends Controller
         ';
 
         $headers = array(
-            'From' => 'Family Browser BUILDing360',
+            'From' => 'no-reply@building360.ch',
             'Reply-To' => 'admin@building360.ch',
             'Content-type' => 'text/html',
             'X-Mailer' => 'PHP/' . phpversion()
