@@ -363,4 +363,9 @@ ol.faq-bold-list>li:before {
     box-shadow: 0px 4px 8px 4px #bbb;
 }
 
+.orderTableHeader{
+    vertical-align: middle!important;
+    background-color:#274B59!important;
+}
+
 /* background: rgba(39,75,89, 0.7); */
