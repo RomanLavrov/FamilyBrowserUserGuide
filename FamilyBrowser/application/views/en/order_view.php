@@ -1,14 +1,15 @@
-<div style="margin: 0px 30px;">
-    <h3>BUILDing360 Family order form</h3>
+<div style="margin: 0px 30px;" class="d-flex flex-row justify-content-center">
 
-    <form id="orderForm" action = "/FamilyBrowser/de/Order/Submit" method="post" enctype="multipart/form-data">
+    <form id="orderForm" action="/FamilyBrowser/de/Order/Submit" method="post" enctype="multipart/form-data" class="w-75">
+        <h3>BUILDing360 Family order form</h3>
+
         <br>
         <h4>Applicant</h4>
         <hr />
 
-        <div class="form-row">
+        <div class="form-row d-flex justify-content-center">
 
-            <div class="form-group col-md-6">
+            <div class="form-row w-75">
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -21,12 +22,8 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">E-Mail Adress</span>
                     </div>
-                    <input type="email" id="order-mail" class="form-control"  required placeholder="Enter your answer" aria-label="mail" aria-describedby="order-mail">
+                    <input type="email" id="order-mail" class="form-control" required placeholder="Enter your answer" aria-label="mail" aria-describedby="order-mail">
                 </div>
-
-            </div>
-
-            <div class="form-group col-md-6">
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -74,40 +71,79 @@
             </label>
         </div>
 
+        <div class="d-flex justify-content-center">
+            <div class="input-group mb-3 w-75">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" for="inputGroupSelect01">Revit Category</label>
+                </div>
+                <select class="custom-select" id="revitCategory" name="revitCategory">
+                    <option selected>Select...</option>
+                    <?php foreach ($this->revitCategories as $category) : ?>
+                        <option><?php print htmlentities($category) ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
+        </div>
+
         <br>
         <h4>Order electrical family</h4>
         <hr />
 
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Description</span>
-            </div>
-            <input type="text" id="order-description" class="form-control" placeholder="Enter your answer" aria-label="name" aria-describedby="order-description">
-        </div>
+        <div class="form-row justify-content-center">
 
-        <div class="form-row">
-
-            <div class="form-group col-md-6">
+            <div class="w-75">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Description</span>
+                    </div>
+                    <input type="text" id="order-description" class="form-control" placeholder="Enter your answer" aria-label="name" aria-describedby="order-description">
+                </div>
 
                 <div class="input-group mb-3">
-                    <input type="file" class="custom-file-input file-upload-en" id="2dFileUpload"  aria-describedby="order-2dFile" style="display:inline-block">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">File Upload ⇪</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="file2d" aria-describedby="order-2dFile" style="display:inline-block" name="file2d">
+                        <label class="custom-file-label" for="file2d" data-browse="Browse">Upload possible 2D symbol...</label>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">File Upload ⇪</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="file3d" aria-describedby="order-3dFile" style="display:inline-block" name="file3d">
+                        <label class="custom-file-label" for="file3d" data-browse="Browse">Upload possible 3D view...</label>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">File Upload ⇪</span>
+                    </div>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="fileSpecification" aria-describedby="order-3dFile" style="display:inline-block" name="fileSpecification">
+                        <label class="custom-file-label" for="fileSpecification" data-browse="Browse">Upload data sheet...</label>
+                    </div>
+                </div>
+
+                <!--div class="input-group mb-3">
+                    <input type="file" class="custom-file-input file-upload-en" id="2dFileUpload" aria-describedby="order-2dFile" style="display:inline-block">
                     <label class="custom-file-label" for="2dFileUpload" data-browse="⇪ File Upload">Upload possible 2D symbol...</label>
-                </div>
+                </div-->
 
-                <div class="input-group mb-3">
-                    <input type="file" class="custom-file-input file-upload-en" id="3dFileUpload"  aria-describedby="order-3dFile" style="display:inline-block" lang="en">
+                <!--div class="input-group mb-3">
+                    <input type="file" class="custom-file-input file-upload-en" id="3dFileUpload" aria-describedby="order-3dFile" style="display:inline-block" lang="en">
                     <label class="custom-file-label" for="3dFileUpload" data-browse="⇪ File Upload">Upload possible 3D view...</label>
-                </div>
+                </div-->
 
-                <div class="input-group mb-3">
-                    <input type="file" class="custom-file-input file-upload-en" id="specificationupload"  aria-describedby="order-3dFile" style="display:inline-block">
+                <!--div class="input-group mb-3">
+                    <input type="file" class="custom-file-input file-upload-en" id="specificationupload" aria-describedby="order-3dFile" style="display:inline-block">
                     <label class="custom-file-label" for="specificationupload" data-browse="⇪ File Upload">Upload data sheet...</label>
+                </div-->
 
-                </div>
-
-            </div>
-
-            <div class="form-group col-md-6">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Installation type</span>
@@ -128,14 +164,6 @@
                     </div>
                     <input type="text" id="order-installationMedium" class="form-control" placeholder="Enter your answer" aria-label="name" aria-describedby="order-installationMedium">
                 </div>
-
-            </div>
-
-        </div>
-
-        <div class="form-row">
-
-            <div class="form-group col-md-6">
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -158,10 +186,6 @@
                     <input type="text" id="order-depth" class="form-control" placeholder="Enter your answer" aria-label="name" aria-describedby="order-depth">
                 </div>
 
-            </div>
-
-            <div class="form-group col-md-6">
-
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">eBKP-H</span>
@@ -183,24 +207,22 @@
                     <input type="text" id="order-omniClass" class="form-control" placeholder="Enter your answer" aria-label="name" aria-describedby="order-omniClass">
                 </div>
 
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">IFC Export As</span>
+                    </div>
+                    <input type="text" id="order-ifcExportAs" class="form-control" placeholder="Enter your answer" aria-label="name" aria-describedby="order-ifcExportAs">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">IFC Export Type</span>
+                    </div>
+                    <input type="text" id="order-ifcExportType" class="form-control" placeholder="Enter your answer" aria-label="name" aria-describedby="order-ifcExportType">
+                </div>
+
             </div>
-
         </div>
-
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">IFC Export As</span>
-            </div>
-            <input type="text" id="order-ifcExportAs" class="form-control" placeholder="Enter your answer" aria-label="name" aria-describedby="order-ifcExportAs">
-        </div>
-
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">IFC Export Type</span>
-            </div>
-            <input type="text" id="order-ifcExportType" class="form-control" placeholder="Enter your answer" aria-label="name" aria-describedby="order-ifcExportType">
-        </div>
-
 
         <hr>
         <button class="btn btn-success" type="submit" id="submitFamilyOrder">ORDER</button>

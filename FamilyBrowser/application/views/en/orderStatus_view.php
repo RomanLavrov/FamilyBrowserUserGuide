@@ -3,6 +3,7 @@
         <tr>
             <th class="orderTableHeader">#</th>
             <th class="orderTableHeader">System</th>
+            <th class="orderTableHeader">Revit Category</th>
             <th class="orderTableHeader">Description</th>
             <th class="orderTableHeader">Mount</th>
             <th class="orderTableHeader">Placement</th>
@@ -21,6 +22,7 @@
             <tr>
                 <td><?php print htmlentities($order['idOrders']) ?></td>
                 <td><?php print htmlentities($order['System']) ?></td>
+                <td><?php print htmlentities($order['RevitCategory']) ?></td>
                 <td><?php print htmlentities($order['Description']) ?></td>
                 <td><?php print htmlentities($order['Mount']) ?></td>
                 <td><?php print htmlentities($order['Placement']) ?></td>

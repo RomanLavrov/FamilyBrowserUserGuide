@@ -23,6 +23,7 @@ class Order_Model extends Model{
         $Company = $order['company'];
         $Project = $order['project'];
         $System = $order['systemSelection'];
+        $RevitCategory = $order['revitCategory'];
         $Description = $order['description'];
         $Mount= $order['mount'];
         $Placement= $order['placement'];
@@ -42,12 +43,12 @@ class Order_Model extends Model{
         $CreatedAt = date('Y-m-d H:i:s');
 
         $sql = "INSERT INTO `hhmeweme_orderFamilies`.`Orders`
-         (`Name`, `Mail`, `Company`, `Project`, `System`, `Description`, 
+         (`Name`, `Mail`, `Company`, `Project`, `System`, `RevitCategory`, `Description`, 
          `Mount`, `Placement`, `InstallationMedium`, `Diameter`, `Height`, 
          `Depth`, `Width`, `eBKP`, `BKP`, `OmniClass`, `IFCexportAs`, 
          `IFCexportType`, `File2d`, `File3d`, `FileSpecification`, `CreatedAt`) 
          
-         VALUES ('$Name', '$Mail', '$Company', '$Project', '$System', '$Description', '$Mount', '$Placement', '$InstallationMedium', 
+         VALUES ('$Name', '$Mail', '$Company', '$Project', '$System', '$RevitCategory', '$Description', '$Mount', '$Placement', '$InstallationMedium', 
          '$Diameter', '$Height', '$Depth', '$Width', '$eBKP', '$BKP', '$OmniClass', '$IFCexportAs', '$IFCexportType', '$File2d', '$File3d', '$FileSpecification', '$CreatedAt')";
          if($query = $this->pdo->prepare($sql)){
             if ($query->execute()){

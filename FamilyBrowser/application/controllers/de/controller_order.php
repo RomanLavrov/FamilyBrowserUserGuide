@@ -5,6 +5,96 @@ class Controller_Order extends Controller
 {
     public function action_index()
     {
+        $categories = [
+            "Allgemeines Modell",
+            "Bepflanzung",
+            "Bewehrung - linear",
+            "Bewehrung - Matten",
+            "Bewehrung - Stabstahl",
+            "Bewehrung - Verlegebereich Fläche",
+            "Bewehrung - Verlegebereich Matten",
+            "Brandmelder",
+            "Brückenkabel",
+            "Brückentafeln",
+            "Brückentragwerk",
+            "Dächer",
+            "Datengeräte",
+            "Decken",
+            "Dehnfugen",
+            "Detailelemente",
+            "Elektrische Ausstattung",
+            "Elektroinstallationen",
+            "Fachwerkbinder",
+            "Fassadenelemente",
+            "Fassadenpfosten",
+            "Fenster",
+            "Flexible Rohre",
+            "Flexkanäle",
+            "Fundamente",
+            "Geländer",
+            "Geschossdecken",
+            "Grundstück",
+            "HLS-Bauteile",
+            "Kabel",
+            "Kabeltrassen",
+            "Kabeltrassenformteile",
+            "Kommunikationsgeräte",
+            "Körper",
+            "Lager",
+            "Leerrohr",
+            "Leerrohrformteile",
+            "Leuchten",
+            "Lichtschalter",
+            "Linien",
+            "Luftdurchlässe",
+            "Luftkanaldämmung außen",
+            "Luftkanaldämmung innen",
+            "Luftkanäle",
+            "Luftkanalformteile",
+            "Luftkanalplatzhalter",
+            "Luftkanalzubehör",
+            "MEP Fabrication Halterungen",
+            "MEP Fabrication Kabelführungen",
+            "MEP Fabrication Luftkanäle",
+            "MEP Fabrication Rohre",
+            "Möbel",
+            "Möbelsysteme",
+            "Notrufgeräte",
+            "Parkplatz",
+            "Pfeiler",
+            "Rampen",
+            "Rohrdämmung",
+            "Rohre",
+            "Rohrformteile",
+            "Rohrplatzhalter",
+            "Rohrzubehör",
+            "Sanitärinstallationen",
+            "Schachtöffnungen",
+            "Schreinerarbeiten",
+            "Schwingungsmanagement",
+            "Sicherheitsgeräte",
+            "Skelettbau",
+            "Sonderausstattung",
+            "Spannglieder",
+            "Sprinkler",
+            "Steifen",
+            "Straßen",
+            "Stützen",
+            "Teile",
+            "Telefongeräte",
+            "Topografie",
+            "Trägersysteme",
+            "Tragwerksstützen",
+            "Tragwerksverbindungen",
+            "Treppen",
+            "Türen",
+            "Umgebung",
+            "Verbindungsmittel",
+            "Wände",
+            "Widerlager",
+            "Zonen"
+        ];
+        $this->view->revitCategories = $categories;
         $this->view->generate('order_view.php', 'de/template_view.php');
     }
 
@@ -13,14 +103,14 @@ class Controller_Order extends Controller
         $order = $_POST;
 
         foreach ($_FILES  as $fileId => $file) {
-            $order[$fileId] = "No File";
+            $order[$fileId] = "logo.png";
             if ($file['size'] != 0) {
                 $order[$fileId] = $this->UploadFile($file);
             }
         }
 
         $this->model = new Order_Model;
-
+        
         $orderId = $this->model->createOrder($order);
         $this->mailOrder($_POST['mail'], $orderId);
         $this->mailManager($orderId);
@@ -69,7 +159,7 @@ class Controller_Order extends Controller
         ini_set('sendmail_from', "no-reply@building360.ch");
         ini_set('password', 'nUK2E253ZJA-WG7');
 
-        $to = $mailAdress;// 'johny@example.com, sally@example.com'; 
+        $to = $mailAdress; // 'johny@example.com, sally@example.com'; 
         $subject = 'Familie bestellen BUILDing360'; //Your order was successfully added to system
 
         $message = '

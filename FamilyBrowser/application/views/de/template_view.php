@@ -18,7 +18,7 @@
             <div id='logo-building' class="col-md-2">
                 <a href="http://building360.ch"><img src="/FamilyBrowser/images/logo_building360.png" style="width: 95px" /></a>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <a href="/FamilyBrowser/de/Overview">
                     <div id='logo-browser'>
                         <img src="/FamilyBrowser/images/logo.png" style="width: 55px">
@@ -28,7 +28,13 @@
                     </div>
                 </a>
             </div>
-            
+
+            <div class="col-md-1 d-flex flex-row">
+                <div class="align-self-center">
+                    <a class="btn btn-success ">Login</a>
+                </div>
+            </div>
+
             <div class="col-md-1">
                 <div id="languageSelector" class="dropdown"></div>
                 <div class="btn-lang">DE</div>
@@ -47,7 +53,7 @@
             <button class="accordion">Loslegen</button>
             <div class='panel'>
                 <a class="nav-button" target="_self" data-name="Overview" href="/FamilyBrowser/de/Overview">Überblick</a>
-               
+
                 <a class="nav-button" target="_self" data-name="Settings" href="/FamilyBrowser/de/Settings">Einstellungen</a>
                 <a class="nav-button" target="_self" data-name="FAQ" href="/FamilyBrowser/de/FAQ">FAQ</a>
             </div>
@@ -62,19 +68,19 @@
             <button class="accordion">Funktionen</button>
             <div class="panel">
                 <a class="nav-button" target="_self" data-name="Interface" href="/FamilyBrowser/de/Interface">Interface</a>
-                <a class="nav-button" target="_self" data-name="Basic_functions" href="/FamilyBrowser/de/Basic_functions">Familien einfügen</a>    
-                <a class="nav-button" target="_self" data-name="Tools" href="/FamilyBrowser/de/Tools">Toolbox</a>           
+                <a class="nav-button" target="_self" data-name="Basic_functions" href="/FamilyBrowser/de/Basic_functions">Familien einfügen</a>
+                <a class="nav-button" target="_self" data-name="Tools" href="/FamilyBrowser/de/Tools">Toolbox</a>
             </div>
 
             <button class="accordion">Familie beantragen</button>
             <div class="panel">
-                <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order">Familie beantragen</a>   
-                <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order/Status">Status der Bestellung</a>                
+                <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order">Familie beantragen</a>
+                <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order/Status">Status der Bestellung</a>
             </div>
         </div>
 
         <div class="col-md" style="padding:0px; margin-bottom:0px; margin-right:0px;">
-            <div id="content"><?php include 'application/views/de/' . $content_view;?></div>
+            <div id="content"><?php include 'application/views/de/' . $content_view; ?></div>
         </div>
     </div>
 
