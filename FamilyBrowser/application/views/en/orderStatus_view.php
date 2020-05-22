@@ -1,4 +1,20 @@
-﻿<table class="table table-hover">
+﻿<table class="table table-hover table-bordered">
+<colgroup>
+        <col span="1" style="width: 2%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 15%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 5%;">
+        <col span="1" style="width: 15%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 10%;">
+        <col span="1" style="width: 8%;">
+        <col span="1" style="width: 5%;">
+    </colgroup>
+
     <thead class="thead-dark">
         <tr>
             <th class="orderTableHeader">#</th>
@@ -19,11 +35,11 @@
 
     <tbody>
         <?php foreach ($this->orders as $order) : ?>
-            <tr>
+            <tr style="text-align:center">
                 <td><?php print htmlentities($order['idOrders']) ?></td>
                 <td><?php print htmlentities($order['System']) ?></td>
                 <td><?php print htmlentities($order['RevitCategory']) ?></td>
-                <td><?php print htmlentities($order['Description']) ?></td>
+                <td style="text-align:left"><?php print htmlentities($order['Description']) ?></td>
                 <td><?php print htmlentities($order['Mount']) ?></td>
                 <td><?php print htmlentities($order['Placement']) ?></td>
                 <td><?php print htmlentities($order['InstallationMedium']) ?></td>
@@ -47,10 +63,10 @@
                         </div>
                     </div>
                 </td>
-                <td><img class="img-thumbnail" src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/'.$order['File2d'])?>" alt="No Image"></th>
-                <td><img class="img-thumbnail" src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/'.$order['File3d'])?>" alt="No Image"></th>
-                <td><img class="img-thumbnail" src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/'.$order['FileSpecification'])?>" alt="No Image"></th>
-                <td><?php print htmlentities($order['CreatedAt'])?></td>
+                <td><img class="img-thumbnail" src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File2d']) ?>" alt="No Image"></th>
+                <td><img class="img-thumbnail" src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File3d']) ?>" alt="No Image"></th>
+                <td><img class="img-thumbnail" src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['FileSpecification']) ?>" alt="No Image"></th>
+                <td><?php print htmlentities($order['CreatedAt']) ?></td>
                 <td>Status</td>
             <tr>
             <?php endforeach ?>
