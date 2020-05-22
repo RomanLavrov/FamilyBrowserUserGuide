@@ -18,7 +18,7 @@
             <div id='logo-building' class="col-md-2">
                 <a href="http://building360.ch"><img src="/FamilyBrowser/images/logo_building360.png" style="width: 95px" /></a>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <a href="/FamilyBrowser/de/Overview">
                     <div id='logo-browser'>
                         <img src="/FamilyBrowser/images/logo.png" style="width: 55px">
@@ -29,9 +29,12 @@
                 </a>
             </div>
 
-            <div class="col-md-1 d-flex flex-row">
-                <div class="align-self-center">
-                    <a class="btn btn-success ">Login</a>
+            <div class="col-md-2 d-flex flex-row">
+                <div class="align-self-center p-1">
+                    <a href="/FamilyBrowser/de/Auth/Login" class="btn btn-success" style="color:white"><?php print htmlentities(isset($_SESSION['role'])? $_SESSION['user']: "Anmeldung")?></a>
+                </div>
+                <div class="align-self-center p-1">
+                    <a href="/FamilyBrowser/de/Auth/Register" class="btn btn-success" style="color:white">Registrieren</a>
                 </div>
             </div>
 
