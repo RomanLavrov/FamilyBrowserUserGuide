@@ -91,7 +91,7 @@
 
         <div class="form-row justify-content-center">
 
-            <div class="input-group mb-3 w-75" >
+            <div class="input-group mb-3 w-75">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Beschreibung</span>
                 </div>
@@ -145,24 +145,60 @@
 
             <div class="input-group mb-3 w-75">
                 <div class="input-group-prepend">
+                    <span class="input-group-text" for="order-mount">Installationsart</label>
+                </div>
+                <select class="custom-select" id="order-mount" name="mount">
+                    <option selected>Nicht ausgewählt</option>
+                    <option>Unterputzmontage</option>
+                    <option>Aufputzmontage</option>
+                </select>
+            </div>
+
+            <!--div class="input-group mb-3 w-75">
+                <div class="input-group-prepend">
                     <span class="input-group-text">Installationsart</span>
                 </div>
                 <input type="text" id="order-mount" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-mount" name="mount">
-            </div>
+            </div-->
+
 
             <div class="input-group mb-3 w-75">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" for="order-placement">Installationsort</label>
+                </div>
+                <select class="custom-select" id="order-placement" name="placement">
+                    <option selected>Nicht ausgewählt</option>
+                    <option>Decke</option>
+                    <option>Wande</option>
+                    <option>Boden</option>
+                </select>
+            </div>
+
+            <!--div class="input-group mb-3 w-75">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Installationsort</span>
                 </div>
                 <input type="text" id="order-placement" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-placement" name="placement">
-            </div>
+            </div-->
 
             <div class="input-group mb-3 w-75">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" for="order-installationMedium">Installationsmedium</label>
+                </div>
+                <select class="custom-select" id="order-installationMedium" name="installationMedium">
+                    <option selected>Nicht ausgewählt</option>
+                    <?php foreach ($this->installationMedium as $medium) : ?>
+                        <option><?php print htmlentities($medium)?></option>
+                    <?php endforeach?>
+                </select>
+            </div>
+
+            <!--div class="input-group mb-3 w-75">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Installationsmedium</span>
                 </div>
                 <input type="text" id="order-installationMedium" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-installationMedium" name="installationMedium">
-            </div>
+            </div-->
 
 
             <div class="input-group mb-3 w-75">

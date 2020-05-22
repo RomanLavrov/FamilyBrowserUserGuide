@@ -146,24 +146,59 @@
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
+                        <span class="input-group-text" for="order-mount">Installation type</label>
+                    </div>
+                    <select class="custom-select" id="order-mount" name="mount">
+                        <option selected>Not selected</option>
+                        <option>Flush Mounting</option>
+                        <option>Surface mounting</option>
+                    </select>
+                </div>
+
+                <!--div class="input-group mb-3">
+                    <div class="input-group-prepend">
                         <span class="input-group-text">Installation type</span>
                     </div>
                     <input type="text" id="order-mount" class="form-control" placeholder="Enter your answer" aria-label="name" aria-describedby="order-mount">
-                </div>
+                </div-->
 
                 <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" for="order-placement">Installation location</label>
+                    </div>
+                    <select class="custom-select" id="order-placement" name="placement">
+                        <option selected>Not selecteds</option>
+                        <option>Ceiling</option>
+                        <option>Wall</option>
+                        <option>Floor</option>
+                    </select>
+                </div>
+
+                <!--div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Installation location</span>
                     </div>
                     <input type="text" id="order-placement" class="form-control" placeholder="Enter your answer" aria-label="name" aria-describedby="order-placement">
-                </div>
+                </div-->
 
                 <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" for="order-installationMedium">Installation medium</label>
+                    </div>
+                    <select class="custom-select" id="order-installationMedium" name="installationMedium">
+                        <option selected>Not selected</option>
+                        <?php foreach ($this->installationMedium as $medium) : ?>
+                            <option><?php print htmlentities($medium) ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </div>
+
+                <!--div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Installation medium</span>
                     </div>
                     <input type="text" id="order-installationMedium" class="form-control" placeholder="Enter your answer" aria-label="name" aria-describedby="order-installationMedium">
-                </div>
+                </div-->
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
