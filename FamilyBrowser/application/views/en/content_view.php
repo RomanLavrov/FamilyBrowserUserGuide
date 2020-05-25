@@ -3,12 +3,12 @@
       <p>
             Digital version of vendors devices ready to use with Revit:
       </p>
-      <table class="table table-striped">
+      <table class="table table-striped table-small-logo">
             <colgroup>
                   <col span="1" style="width: 5%;">
                   <col span="1" style="width: 10%;">
-                  <col span="1" style="width: 25%;">
-                  <col span="1" style="width: 40%;">
+                  <col span="1" style="width: 15%;">
+                  <col span="1" style="width: 50%;">
                   <col span="1" style="width: 20%;">
             </colgroup>
             <thead class="thead-dark" id="table-vendor">
@@ -23,7 +23,9 @@
             <tbody>
                   <tr>
                         <td>1</td>
-                        <td><img src="/FamilyBrowser/images/Almat.png" alt=""></td>
+                        <td>
+                              <img src="/FamilyBrowser/images/Almat.png" alt="">
+                        </td>
                         <td>Almat</td>
                         <td>Emergency lighting and wiring </td>
                         <td><a href="http://www.almat.ch/" target="_blanc">Almat.ch</a></td>
@@ -41,6 +43,22 @@
                         <td>Datwyler</td>
                         <td>Electrical equipment</td>
                         <td><a href="https://www.datwyler.com/en/home/" target="_blanc">Datwyler.com</a></td>
+                  </tr>
+                  <tr>
+                        <td>4</td>
+                        <td><img src="/FamilyBrowser/images/Woertz.png" alt=""></td>
+                        <td>Woertz</td>
+                        <td>Electrical Equipment / Fixtures and Duct / Cable Tray / Conduit Fitting</td>
+                        <td><a href="https://woertz.ch" target="_blanc">Woertz.ch</a></td>
+                  </tr>
+                  <tr>
+                        <td>5</td>
+                        <td>
+                              <img src="/FamilyBrowser/images/KWC.png" style="margin-top: 5%;" alt="">
+                        </td>
+                        <td>KWC</td>
+                        <td>Mechanical Equipment</td>
+                        <td><a href="https://kwc.ch" target="_blanc">KWC.ch</a></td>
                   </tr>
             </tbody>
       </table>

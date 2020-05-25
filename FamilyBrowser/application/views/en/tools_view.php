@@ -2,7 +2,7 @@
 <div class="article-content">
       <p>
             Starting from version 2.0.4 Family Browser will represent new tools that extend Revit opportunities and
-            allow collaboration with other services. </p>
+            allow collaboration with other services. </p>   
 </div>
 
 <div class="article-header">
@@ -18,6 +18,49 @@
             family type and if family was moved or rotated - please re-use this tool to move GDP points and remove
             unnecessary.
       </p>
+</div>
+
+<div class="article-header">
+      <div style="box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.55); padding: 0.3em">
+            <img src="/FamilyBrowser/images/Search-icon.png" alt="Search" /> Search
+      </div>
+      
+</div>
+<div class="article-content">
+      <p>This tool represents a global search through all available items of Electrical or HVAC Catalogs. 
+      The search is being executed within your chosen version in <a href="/FamilyBrowser/en/Settings">Settings</a>. Available from version 3.0.0 of Family Browser.</p>
+      <p>How does it work? You write your search queue, which may contain one word or more and get the results filtered by your request “on fly”.</p>
+      <p>The search engine is looking for elements by your request in such parameters: Family name, Type name, Description, Category, Product, Product number, E-Number, OmniClass number, BKP, eBKP_H. If there is an occurrence of at least one parameter the element will be in the resulting list. For convenience your request queue will be highlighted in bold font. Example is represented at the figure below.
+      </p>
+      <div class="d-flex justify-content-center modal-img-container">
+            <img class="search-imgs" src="/FamilyBrowser/images/search1_en.jpg" alt="">
+      </div>
+      <p>Moving a cursor over the element leads to a hint, which will be a preview image of this element.</p>
+      <div class="d-flex justify-content-center modal-img-container">
+            <img class="search-imgs" src="/FamilyBrowser/images/search2_en.jpg" alt="">
+      </div>
+      <p>If you enter a search query and press "Enter" after they are displayed, all found elements will be loaded into the Revit FamilyBrowser <a href="/FamilyBrowser/en/Interface#main-panel">dockable panel</a>. Afterwards you will be able to manipulate these items in the usual way.</p>
+      <div class="d-flex justify-content-center modal-img-container">
+            <img class="search-imgs" src="/FamilyBrowser/images/Dockable_search_en.PNG" alt="">
+      </div>
+      <p>You can also insert any of the found elements directly into the project. To do this, you must select an item using the arrow keys and press "Enter" or double-click on found element with the left mouse button.</p>
+      <div class="d-flex justify-content-center modal-img-container">
+            <img class="search-imgs" src="/FamilyBrowser/images/search3_en.jpg" alt="">
+      </div>
+</div>
+
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-body">
+      	<button type="button" class="close" data-dismiss="modal">
+                  <span aria-hidden="true">&times;</span>
+                  <span class="sr-only">Close</span>
+            </button>
+        <img src="" class="imagepreview" style="width:100%">
+      </div>
+    </div>
+  </div>
 </div>
 <!--
 <div class="article-header"> <img style="box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.55);"
@@ -137,3 +180,4 @@
       -->
 
 </div>
+<script src="/FamilyBrowser/js/imageModal.js"></script>

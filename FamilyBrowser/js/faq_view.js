@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    
+
     function ExpandHeader(){
 
         var $el = $(this);
@@ -45,5 +45,4 @@ $(document).ready(function () {
 
     $(".expanding-header").click(ExpandHeader);
     $(".expanding-button").click(ExpandButton);
-
 });

@@ -25,6 +25,48 @@
             unnötig.
       </p>
 </div>
+
+<div class="article-header">
+      <div style="box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.55); padding: 0.3em">
+            <img src="/FamilyBrowser/images/Search-icon.png" alt="Durchsuchen" /> Durchsuchen
+      </div>
+      
+</div>
+<div class="article-content">
+      <p>Dieses Tool dient als globale Suche durch alle verfügbaren Artikel in Elektro- oder HLKS-Katalogen. Die Suche wird innerhalb der gewählten Version ausgeführt, die Sie in den <a href="/FamilyBrowser/de/Settings">Einstellungen</a> ändern können.</p>
+      <p>Wie funktioniert die Suche? Sie tippen Ihre Anfrage ein, die ein Wort oder mehrere Wörter enthalten kann, und erhalten sofort die Ergebnisse gefiltert nach Ihrer Anfrage.</p>
+      <p>Die Suchmaschine sucht Elemente nach Ihrer Anfrage in solchen Parametern: Familienname, Typname, Beschreibung, Kategorie, Produkt, Produktnummer, E-Nummer, OmniClass-Nummer, BKP, eBKP_H. Wenn mindestens ein Parameter auftritt, wird das Element in der Ergebnisliste aufgeführt. Dabei wird Ihre Anfrage in Fettschrift hervorgehoben. Ein Beispiel ist in der Abbildung unten dargestellt.
+      </p>
+      <div class="d-flex justify-content-center modal-img-container">
+            <img class="search-imgs" src="/FamilyBrowser/images/search1_de.jpg" alt="">
+      </div>
+      <p>Wenn Sie den Cursor über das Element bewegen, erscheint ein Hinweis mit einem Vorschaubild von diesem Element.</p>
+      <div class="d-flex justify-content-center modal-img-container">
+            <img class="search-imgs" src="/FamilyBrowser/images/search2_de.jpg" alt="">
+      </div>
+      <p>Wenn Sie eine Suchanfrage eingeben und nach der Anzeige die Eingabetaste drücken, werden alle gefundenen Elemente ins <a href="/FamilyBrowser/de/Interface#main-panel">Fenster von Revit Family Browser</a> geladen. Anschließend können Sie diese Elemente in der gewohnten Reihenfolge bearbeiten.</p>
+      <div class="d-flex justify-content-center modal-img-container">
+            <img class="search-imgs" src="/FamilyBrowser/images/Dockable_search_de.PNG" alt="">
+      </div>
+      <p>Sie können auch ein gefundenes Element direkt in das Projekt einfügen. Dazu müssen Sie dieses Element anwählen und «Enter» drücken; oder mit der linken Maustaste auf das gefundene Element doppelklicken.</p>
+      <div class="d-flex justify-content-center modal-img-container">
+            <img class="search-imgs" src="/FamilyBrowser/images/search3_de.jpg" alt="">
+      </div>
+</div>
+
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-body">
+      	<button type="button" class="close" data-dismiss="modal">
+                  <span aria-hidden="true">&times;</span>
+                  <span class="sr-only">Close</span>
+            </button>
+        <img src="" class="imagepreview" style="width:100%">
+      </div>
+    </div>
+  </div>
+</div>
 <!--
 <div class="article-header">
       <img style="box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.55);" src="/FamilyBrowser/images/OttoFischerButton.png" alt="OttoFischer" />
@@ -151,6 +193,5 @@
             </div>
       </div>
       -->
-
-
 </div>
+<script src="/FamilyBrowser/js/imageModal.js"></script>

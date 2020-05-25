@@ -3,12 +3,12 @@
       <p>
             Folgende herstellerspezifischen Produkten sind verfügbar:
       </p>
-      <table class="table table-striped">
+      <table class="table table-striped table-small-logo">
             <colgroup>
                   <col span="1" style="width: 5%;">
                   <col span="1" style="width: 10%;">
-                  <col span="1" style="width: 25%;">
-                  <col span="1" style="width: 40%;">
+                  <col span="1" style="width: 15%;">
+                  <col span="1" style="width: 50%;">
                   <col span="1" style="width: 20%;">
             </colgroup>
             <thead class="thead-dark" id="table-vendor">
@@ -41,6 +41,22 @@
                         <td>Datwyler</td>
                         <td>Elektrische Ausstattung</td>
                         <td><a href="https://www.datwyler.com/en/home/" target="_blanc">Datwyler.com</a></td>
+                  </tr>
+                  <tr>
+                        <td>4</td>
+                        <td><img src="/FamilyBrowser/images/Woertz.png" alt=""></td>
+                        <td>Woertz</td>
+                        <td>Elektrische Ausstattung, Elektroinstallationen, and Kanal / Kabeltrassen / Rohr-Armaturen</td>
+                        <td><a href="https://woertz.ch" target="_blanc">Woertz.ch</a></td>
+                  </tr>
+                  <tr>
+                        <td>5</td>
+                        <td>
+                              <img src="/FamilyBrowser/images/KWC.png" style="margin-top: 5%;" alt="">
+                        </td>
+                        <td>KWC</td>
+                        <td>Mechanische Ausstattung</td>
+                        <td><a href="https://kwc.ch" target="_blanc">KWC.ch</a></td>
                   </tr>
             </tbody>
       </table>

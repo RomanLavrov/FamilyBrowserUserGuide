@@ -68,7 +68,7 @@
       </div>
 </div>
 
-<div class="article-header">
+<div class="article-header" id="main-panel">
       Hauptfenster
 </div>
 <div class="article-content">

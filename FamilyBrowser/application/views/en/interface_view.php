@@ -61,7 +61,7 @@
       </div>
 </div>
 
-<div class="article-header">
+<div class="article-header" id="main-panel">
       Main Panel
 </div>
 <div class="article-content">
