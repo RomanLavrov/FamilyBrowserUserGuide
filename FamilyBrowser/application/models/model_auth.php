@@ -32,6 +32,16 @@ class Auth_Model extends Model
             }
         }
     }
+
+    public function resetPassword($email, $token){
+        $sql = "INSERT INTO `hhmeweme_orderFamilies`.`PasswordReset` (`Email`, `Token`) VALUES ('$email', '$token')";
+        $query = $this->pdo->prepare($sql);
+        $query->execute();
+    }
+
+    public function checkToken($token){
+        $sql="SELECT * FROM `hhmeweme_orderFamilies`.`PasswordReset`";
+        $query = $this->pdo->prepare($sql);
         if ($query->execute()) {
             if($query->rowCount() == 1){
 
@@ -57,6 +67,5 @@ class Auth_Model extends Model
         else {
             return false;
         }
-
     }
 }
