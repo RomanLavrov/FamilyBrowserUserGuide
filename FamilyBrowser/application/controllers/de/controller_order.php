@@ -2,7 +2,7 @@
 require_once("./application/models/model_orders.php");
 
 class Controller_Order extends Controller
-{
+{    
     private $categories = [
         "Allgemeines Modell",
         "Bepflanzung",
@@ -120,7 +120,7 @@ class Controller_Order extends Controller
     {
         $this->view->installationMedium = $this->installationMedium;
         $this->view->revitCategories = $this->categories;
-        $this->view->generate('order_view.php', 'de/template_view.php');
+        $this->view->generate('Orders/order_view.php', 'de/template_view.php');
     }
 
     public function action_Submit()
@@ -140,14 +140,21 @@ class Controller_Order extends Controller
         $this->mailOrder($_POST['mail'], $orderId);
         $this->mailManager($orderId);
         $this->view->orders = $this->model->getOrders();
-        $this->view->generate('orderStatus_view.php', 'de/template_view.php');
+        $this->view->generate('Orders/orderStatus_view.php', 'de/template_view.php');
     }
 
     public function action_Status()
     {
         $this->model = new Order_Model;     
         $this->view->orders = $this->model->getOrders();
-        $this->view->generate('orderStatus_view.php', 'de/template_view.php');
+        $this->view->generate('Orders/orderStatus_view.php', 'de/template_view.php');
+    }
+
+    public function action_Manage(){
+        $this->model = new Order_Model;
+        $this->view->orders = $this->model->getOrders();
+
+       $this->view->generate('Orders/orderManage_view.php', 'de/template_view.php');
     }
 
     function UploadFile($file)

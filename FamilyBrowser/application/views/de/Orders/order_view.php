@@ -103,7 +103,7 @@
                     <span class="input-group-text">Datei hochladen ⇪</span>
                 </div>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="file2d" aria-describedby="order-2dFile" style="display:inline-block" name="file2d">
+                    <input type="file" class="custom-file-input" id="file2d" aria-describedby="order-2dFile" accept=".png, .bmp, .jpeg" style="display:inline-block" name="file2d">
                     <label class="custom-file-label" for="file2d" data-browse="Suchen">Mögliches 2D Symbol einfügen...</label>
                 </div>
             </div>
@@ -113,7 +113,7 @@
                     <span class="input-group-text">Datei hochladen ⇪</span>
                 </div>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="file3d" aria-describedby="order-3dFile" style="display:inline-block" name="file3d">
+                    <input type="file" class="custom-file-input" id="file3d" aria-describedby="order-3dFile"  accept=".png, .bmp, .jpeg" style="display:inline-block" name="file3d">
                     <label class="custom-file-label" for="file3d" data-browse="Suchen">Mögliches 3D Symbol einfügen...</label>
                 </div>
             </div>
@@ -123,7 +123,7 @@
                     <span class="input-group-text">Datei hochladen ⇪</span>
                 </div>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="fileSpecification" aria-describedby="order-3dFile" style="display:inline-block" name="fileSpecification">
+                    <input type="file" class="custom-file-input" id="fileSpecification" aria-describedby="order-fileSpecification"  accept=".pdf, .docx, .xlsx" style="display:inline-block" name="fileSpecification">
                     <label class="custom-file-label" for="fileSpecification" data-browse="Suchen">Datenblatt einfügen...</label>
                 </div>
             </div>
