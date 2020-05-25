@@ -382,4 +382,45 @@ ol.faq-bold-list>li:before {
     background-color:#274B59!important;
 }
 
+#auth-container{
+    background: #274b59;
+    background-image: url('/FamilyBrowser/images/13644-1080.jpg');
+    background-size: auto;
+    background-position-y: -80px;
+    background-repeat: no-repeat;
+}
+
+.auth-card{
+    width: 480px;
+    height: fit-content;
+    border-radius: 15px;;
+    background-color: rgba(255, 255, 255, .25);   
+    backdrop-filter: blur(5px);
+    box-shadow: 4px 0px 8px 4px rgba(63, 63, 63, 0.24);
+
+}
+
+.auth-card-header{
+    height: 100px;
+    font-size: 24pt;
+    text-align: end;
+    color:#274B59;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.651);
+    backdrop-filter: blur(30px);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.auth-link{
+    color:white;
+}
+
+.auth-link:hover{
+    color:rgb(176, 216, 255);
+}
+
+.auth-error{
+    color: rgb(207, 7, 47);
+}
 /* background: rgba(39,75,89, 0.7); */

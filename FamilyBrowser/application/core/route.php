@@ -4,6 +4,7 @@ class Route{
         $controller_lang = 'de';
         $controller_name = 'Overview';
         $action_name = 'index';
+        $action_parameter = null;
 
         $routes = explode('/', $_SERVER['REQUEST_URI']);
 
@@ -17,7 +18,11 @@ class Route{
 
         if (!empty($routes[4])){
             $action_name = $routes[4];
-        }        
+        }     
+        
+        if (!empty($routes[5])){
+            $action_parameter = $routes[5];
+        }
 
         $model_name = 'Model_' . $controller_name;
         $controller_name = 'Controller_' . $controller_name;
@@ -33,7 +38,13 @@ class Route{
             $action = $action_name;
     
             if (method_exists($controller, $action)) {
-                $controller->$action();
+                if (isset($action_parameter)){
+                    $controller->$action($action_parameter);  
+                }
+                else{
+                    $controller->$action();  
+                }
+                            
             }
             else{
                 Route::ErrorPage404();

@@ -18,7 +18,7 @@
             <div id='logo-building' class="col-md-2">
                 <a href="http://building360.ch"><img src="/FamilyBrowser/images/logo_building360.png" style="width: 95px" /></a>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <a href="/FamilyBrowser/de/Overview">
                     <div id='logo-browser'>
                         <img src="/FamilyBrowser/images/logo.png" style="width: 55px">
@@ -29,10 +29,29 @@
                 </a>
             </div>
 
-            <div class="col-md-1 d-flex flex-row">
-                <div class="align-self-center">
-                    <a class="btn btn-success ">Login</a>
-                </div>
+            <div class="col-md-2 d-flex flex-row">
+                <?php if (isset($_SESSION['user'])) : ?>
+                    <div class="dropdown align-self-center p-1">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <?php print htmlentities(isset($_SESSION['role']) ? $_SESSION['user'] : "Konto") ?>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <?php ?>
+                            <a class="dropdown-item" href="/FamilyBrowser/de/Auth/Logout">Abmeldung</a>
+                            <a class="dropdown-item" href="/FamilyBrowser/de/Order/Manage">Auftragsverwaltung</a>
+                        </div>
+                    </div>
+                <?php endif ?>
+
+                <?php if (!isset($_SESSION['user'])) : ?>
+                    <div class="align-self-center p-1">
+                        <a href="/FamilyBrowser/de/Auth/Login" class="btn btn-success" style="color:white"><?php print htmlentities(isset($_SESSION['role']) ? $_SESSION['user'] : "Anmeldung") ?></a>
+                    </div>
+
+                    <div class="align-self-center p-1">
+                        <a href="/FamilyBrowser/de/Auth/Register" class="btn btn-success" style="color:white">Registrieren</a>
+                    </div>
+                <?php endif ?>
             </div>
 
             <div class="col-md-1">
@@ -76,6 +95,11 @@
             <div class="panel">
                 <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order">Familie beantragen</a>
                 <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order/Status">Status der Bestellung</a>
+                <?php if (isset($_SESSION['user'])) : ?>
+                    <?php if ($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Manager') : ?>
+                        <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order/Manage">Auftragsverwaltung</a>
+                    <?php endif ?>
+                <?php endif ?>
             </div>
         </div>
 
