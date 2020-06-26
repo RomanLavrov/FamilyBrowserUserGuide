@@ -118,7 +118,7 @@ class Controller_Order extends Controller
         '230V'];
 
     public function action_index()
-    {      
+    {             
         $this->view->revitCategories = $this->categories;
         $this->view->installationMedium = $this->installationMedium;
         $this->view->generate('order_view.php', 'en/template_view.php');
@@ -151,6 +151,8 @@ class Controller_Order extends Controller
         $this->view->orders = $this->model->getOrders();
         $this->view->generate('orderStatus_view.php', 'en/template_view.php');
     }
+
+    
 
     function UploadFile($file)
     {
@@ -240,7 +242,7 @@ class Controller_Order extends Controller
         ini_set('SMTP', "asmtp.mail.hostpoint.ch");
         ini_set('smtp_port', "465");
         ini_set('sendmail_from', "no-reply@building360.ch");
-        ini_set('password', 'nUK2E253ZJA-WG7');
+        ini_set('password', 'VmavPnFk');
 
         $to = 'roman.lavrov@hhm.ch'; // 'johny@example.com, sally@example.com'; 
         $subject = 'Neue Familienordnung'; //Your order was successfully added to system

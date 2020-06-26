@@ -152,9 +152,31 @@ class Controller_Order extends Controller
 
     public function action_Manage(){
         $this->model = new Order_Model;
+       
+        $this->view->statuses = $this->model->getStatuses();
         $this->view->orders = $this->model->getOrders();
 
        $this->view->generate('Orders/orderManage_view.php', 'de/template_view.php');
+    }
+
+    public function action_GetExportData(){
+        $this->model = new Order_Model;        
+        echo json_encode($this->model->getOrders());
+    }
+
+    public function action_DeleteOrder(){
+        $orderId = $_POST['orderId'];
+        $this->model = new Order_Model;
+
+        print_r($this->model->deleteOrder($orderId));
+    }
+
+    public function action_SetStatus(){
+        $orderId = $_POST['orderId'];
+        $status = $_POST['status'];
+
+        $this->model = new Order_Model;
+        $this->model->setStatus($orderId, $status);
     }
 
     function UploadFile($file)
@@ -182,6 +204,7 @@ class Controller_Order extends Controller
             }
         }
     }
+   
 
     function mailOrder($mailAdress, $orderId)
     {
@@ -247,7 +270,7 @@ class Controller_Order extends Controller
         ini_set('sendmail_from', "no-reply@building360.ch");
         ini_set('password', 'nUK2E253ZJA-WG7');
 
-        $to = 'roman.lavrov@hhm.ch'; // 'johny@example.com, sally@example.com'; 
+        $to = 'roman.lavrov@hhm.ch, daniel.wollenmann@hhm.ch, Galina.Gordienko@hhm.ch'; // 'johny@example.com, sally@example.com'; 
         $subject = 'Neue Familienordnung'; //Your order was successfully added to system
 
         $message = '

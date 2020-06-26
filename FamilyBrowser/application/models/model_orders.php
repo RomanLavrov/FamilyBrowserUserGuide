@@ -55,6 +55,44 @@ class Order_Model extends Model{
                 return $this->pdo->lastInsertId();
             }
         }
+    }
 
+    public function getStatuses(){
+        $statuses = [];
+        $sql = "Select * from OrderStatus";
+
+        if($query = $this->pdo->prepare($sql)){
+            if ($query->execute()){
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $statuses[] = $row;
+                }
+            }
+        }
+
+        return $statuses;
+    }
+
+    public function deleteOrder($orderId){
+        $sql = "Delete from Orders where idOrders = '$orderId' ";
+        $result = false;
+        if($query = $this->pdo->prepare($sql)){
+            if ($query->execute()){
+               $result = true;
+            }
+        }
+
+        return $result;
+    }
+
+    public function setStatus($orderId, $status){
+        $sql = "UPDATE `hhmeweme_orderFamilies`.`Orders` SET `StatusId` = '$status' WHERE (`idOrders` = '$orderId')";
+        $result = false;
+        if($query = $this->pdo->prepare($sql)){
+            if ($query->execute()){
+               $result = true;
+            }
+        }
+
+        return $result;
     }
 }

@@ -1,4 +1,5 @@
-﻿<table class="table table-hover table-bordered">
+<button class="btn btn-primary mb-2" id="btnExcelExport">Excel Exportieren</button>
+<table class="table table-hover table-bordered">
     <colgroup>
         <col span="1" style="width: 5%;">
         <col span="1" style="width: 10%;">
@@ -24,7 +25,7 @@
 
     <tbody>
         <?php foreach ($this->orders as $order) : ?>
-            <tr>
+            <tr class="order" data-orderid=<?php print htmlentities($order['idOrders']) ?>>
                 <td style="text-align:center"><?php print htmlentities($order['idOrders']) ?></td>
                 <td>
                     <div class="d-flex flex-row">
@@ -96,19 +97,27 @@
                     <div class="d-flex flex-row">
                         <div class="p-2 w-50 align-self-center">2D Symbol:</div>
                         <div class="p-2 w-50 align-self-center">
-                            <img class="img-thumbnail rounded " src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File2d']) ?>" alt="No Image">
+                            <img class="img-thumbnail rounded file-preview" src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File2d']) ?>" alt="No Image"   data-link = "<?php  print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File2d'])?>" >
                         </div>
                     </div>
                     <div class="d-flex flex-row">
                         <div class="p-2 w-50 align-self-center">3D Symbol:</div>
                         <div class="p-2 w-50 align-self-center">
-                            <img class="img-thumbnail rounded " src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File3d']) ?>" alt="No Image">
+                            <img class="img-thumbnail rounded file-preview" 
+                            src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File3d']) ?>" alt="No Image"  
+                            data-link = "<?php  print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File3d'])?>">
                         </div>
                     </div>
                     <div class="d-flex flex-row">
                         <div class="p-2 w-50 align-self-center">Spezifikation</div>
                         <div class="p-2 w-50 align-self-center">
-                            <img class="img-thumbnail rounded " src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['FileSpecification']) ?>" alt="No Image">
+                            <img class="img-thumbnail rounded file-preview" 
+                            src="<?php if (strpos($order['FileSpecification'], '.pdf') > 0) {
+                                                                            print htmlentities('/FamilyBrowser/application/orderFilesUploads/logo-pdf.png');
+                                                                        } else {
+                                                                            print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['FileSpecification']);
+                                                                        } ?>" alt="No Image"
+                            data-link = "<?php  print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['FileSpecification'])?>">
                         </div>
                     </div>
                 </td>
@@ -119,30 +128,26 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text" for="order-mount">Status der Bestellung</label>
                             </div>
-                            <select class="custom-select" id="order-mount" name="mount">
-                                <option selected>Nicht bestätigt</option>
-                                <option>Bestätigt</option>
-                                <option>Abgelehnt </option>
+                            <select class="custom-select orderStatusSelect" id="order-mount" name="mount" data-orderid=<?php print htmlentities($order['idOrders']) ?>>
+
+                                <?php foreach ($this->statuses as $status) : ?>
+                                    <option value="<?php print htmlentities($status['idOrderStatus']) ?>" <?php if ($status['idOrderStatus'] == $order['StatusId']) print htmlentities("selected") ?>>
+                                        <?php print htmlentities($status['NameDE']) ?>
+                                    </option>
+                                <?php endforeach ?>
+
                             </select>
                         </div>
                     </div>
+
                     <div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" for="order-mount">Arbeitsstatus</label>
-                            </div>
-                            <select class="custom-select" id="order-mount" name="mount">
-                                <option selected>Nicht gestartet</option>
-                                <option>Anlaufen</option>
-                                <option>Erledigt</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div>
-                        <button class="btn btn-danger w-100">Auftrag löschen</button>
+                        <button class="btn btn-danger w-100 deleteOrder" data-id=<?php print htmlentities($order['idOrders']) ?>>Auftrag löschen</button>
                     </div>
                 </td>
             <tr>
             <?php endforeach ?>
     </tbody>
 </table>
+<script type="text/javascript" src="//unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+<script src="https://cdn.jsdelivr.net/g/filesaver.js"></script>
+<script src="/FamilyBrowser/js/orderManagement.js"></script>
