@@ -30,17 +30,22 @@ class Controller_Auth extends Controller
     {
         $errorText = null;
         if (isset($_POST) && count($_POST) > 0) {
-
-            if ($_POST['password'] != $_POST['password-confirm']) {
-                $errorText = "Die Passwörter stimmen nicht überein.";
-            } else if (strlen($_POST['password']) < 5) {
-                $errorText = "Passwort zu kurz.";
+            $this->model = new Auth_Model;
+            if ($this->model->isUserExists($_POST['login']) == 1) {
+                //header('location: /FamilyBrowser/de/Auth/Login');
+                $errorText = "Benutzer bereits registriert.";
             } else {
-                $this->model = new Auth_Model;
-                if ($this->model->createUser($_POST['login'], $_POST['password'])) {
-                    header('location: /FamilyBrowser/de/Auth/Login');
+                if ($_POST['password'] != $_POST['password-confirm']) {
+                    $errorText = "Die Passwörter stimmen nicht überein.";
+                } else if (strlen($_POST['password']) < 5) {
+                    $errorText = "Passwort zu kurz.";
                 } else {
-                    header('location: /FamilyBrowser/de/Auth/Register');
+
+                    if ($this->model->createUser($_POST['login'], $_POST['password'])) {
+                        header('location: /FamilyBrowser/de/Auth/Login');
+                    } else {
+                        header('location: /FamilyBrowser/de/Auth/Register');
+                    }
                 }
             }
         }
@@ -88,16 +93,14 @@ class Controller_Auth extends Controller
                 $errorText = "Die Passwörter stimmen nicht überein.";
             } else if (strlen($_POST['password']) < 5) {
                 $errorText = "Passwort zu kurz.";
-            }
-            else{
+            } else {
                 $this->model = new Auth_Model;
-              
+
                 if ($this->model->updatePassword($_POST['login'], $_POST['password'])) {
                     header('location: /FamilyBrowser/de/Auth/Login');
                 } else {
-                   $errorText="Benutzer mit gegebener E-Mail nicht gefunden";
+                    $errorText = "Benutzer mit gegebener E-Mail nicht gefunden";
                 }
-                
             }
         }
         $this->view->error = $errorText;

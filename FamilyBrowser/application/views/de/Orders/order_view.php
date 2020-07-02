@@ -41,7 +41,7 @@
         </div>
 
         <br>
-        <h4>Bestellungsart</h4>
+        <!--h4>Bestellungsart</h4>
         <hr />
 
         <div class="d-flex flex-column align-items-center">
@@ -55,7 +55,7 @@
                 Sie bekommen eine E-Mail, sobald die Familie im Family Browser drin ist.
             </div>
         </div>
-        <br>
+        <br-->
         <h4>Wahlen Sie die Kategorie der Familie</h4>
         <hr />
         <div class="form-check">

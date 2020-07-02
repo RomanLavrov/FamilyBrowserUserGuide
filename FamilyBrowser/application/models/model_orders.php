@@ -5,7 +5,7 @@ class Order_Model extends Model{
 
     public function getOrders(){
         $orders = [];
-        $sql = "SELECT * FROM hhmeweme_orderFamilies.Orders";
+        $sql = "SELECT * FROM Orders left join OrderStatus on Orders.StatusId = OrderStatus.idOrderStatus";
         if($query = $this->pdo->prepare($sql)){
             if ($query->execute()){
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {

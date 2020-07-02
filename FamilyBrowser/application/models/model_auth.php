@@ -33,6 +33,17 @@ class Auth_Model extends Model
         }
     }
 
+    public function isUserExists($login){
+        $sql = "SELECT * FROM `hhmeweme_orderFamilies`.`Users` WHERE `Login`='$login'";
+        $query = $this->pdo->prepare($sql);
+        if ($query->execute()){
+            if ($query->rowCount()>0){               
+                return true;
+            }
+        }
+        else return false;
+    }
+
     public function resetPassword($email, $token){
         $sql = "INSERT INTO `hhmeweme_orderFamilies`.`PasswordReset` (`Email`, `Token`) VALUES ('$email', '$token')";
         $query = $this->pdo->prepare($sql);

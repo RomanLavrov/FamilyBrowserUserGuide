@@ -46,8 +46,8 @@
                         <div class="w-50"><?php print htmlentities($order['Placement']) ?></div>
                     </div>
                     <div class="d-flex flex-row pb-1">
-                        <div class="w-50">Installationsmedium:</div>
-                        <div class="w-50"><?php print htmlentities($order['InstallationMedium']) ?></div>
+                        <div class="w-75">Installationsmedium:</div>
+                        <div class="w-25"><?php print htmlentities($order['InstallationMedium']) ?></div>
                     </div>
                 </td>
 
@@ -99,7 +99,7 @@
                     </div></td>
                
                 <td style="text-align:center"><?php print htmlentities($order['CreatedAt']) ?></td>
-                <td style="text-align:center"><?php print htmlentities($order['StatusId']) ?></td>
+                <td style="text-align:center"><?php print htmlentities($order['NameDE']) ?></td>
             <tr>
             <?php endforeach ?>
     </tbody>
