@@ -67,3 +67,16 @@ function createUUID() {
     });
 }
 
+$(".hvacMedium").hide();
+
+$("#systemElektro").change(function() {
+   
+    $(".hvacMedium").hide();
+    $(".electroMedium").show();
+});
+
+$("#systemHVAC").change(function() {   
+    $(".hvacMedium").show();
+    $(".electroMedium").hide();
+});
+

@@ -2,7 +2,7 @@
 require_once("./application/models/model_orders.php");
 
 class Controller_Order extends Controller
-{    
+{
     private $categories = [
         "Allgemeines Modell",
         "Bepflanzung",
@@ -92,33 +92,48 @@ class Controller_Order extends Controller
         "Widerlager",
         "Zonen"
     ];
-    private $installationMedium = [ 
-        '400V', 
-        'PVA', 
-        'Telefon', 
-        'Spitalruf-Anlage', 
-        'Sicherheit', 
-        'Res', 
-        'RWA', 
-        'UKV', 
-        'ZUKO', 
-        'Radio/TV', 
-        'Uhr', 
-        'Allgemein', 
-        'GSA', 
-        'GRA', 
+
+    private $installationMedium = [
+        '400V',
+        'PVA',
+        'Telefon',
+        'Spitalruf-Anlage',
+        'Sicherheit',
+        'Res',
+        'RWA',
+        'UKV',
+        'ZUKO',
+        'Radio/TV',
+        'Uhr',
+        'Allgemein',
+        'GSA',
+        'GRA',
         'GAS',
-        'Gebäudeautomation', 
-        'Audio/Video', 
-        'Brandschutz', 
-        'EDV', 
-        'NOT', 
-        'HLKS', 
-        '230V'];
-    
-        public function action_index()
+        'Gebäudeautomation',
+        'Audio/Video',
+        'Brandschutz',
+        'EDV',
+        'NOT',
+        'HLKS',
+        '230V'
+    ];
+
+    private $installationMediumHVAC =[
+        'Rücklauf',
+        'Vorlauf',
+        'Kaltwasser',
+        'Warmwasser',
+        'Abwasser',
+        'Regenwasser',
+        'Sprinkler Nass',
+        'Sprinkler Trocken',
+        'Sprinkler Vorgesteuert'
+    ];
+
+    public function action_index()
     {
         $this->view->installationMedium = $this->installationMedium;
+        $this->view->installationMediumHVAC = $this->installationMediumHVAC;
         $this->view->revitCategories = $this->categories;
         $this->view->generate('Orders/order_view.php', 'de/template_view.php');
     }
@@ -135,7 +150,7 @@ class Controller_Order extends Controller
         }
 
         $this->model = new Order_Model;
-        
+
         $orderId = $this->model->createOrder($order);
         $this->mailOrder($_POST['mail'], $orderId);
         $this->mailManager($orderId);
@@ -145,33 +160,37 @@ class Controller_Order extends Controller
 
     public function action_Status()
     {
-        $this->model = new Order_Model;     
+        $this->model = new Order_Model;
         $this->view->orders = $this->model->getOrders();
         $this->view->generate('Orders/orderStatus_view.php', 'de/template_view.php');
     }
 
-    public function action_Manage(){
+    public function action_Manage()
+    {
         $this->model = new Order_Model;
-       
+
         $this->view->statuses = $this->model->getStatuses();
         $this->view->orders = $this->model->getOrders();
 
-       $this->view->generate('Orders/orderManage_view.php', 'de/template_view.php');
+        $this->view->generate('Orders/orderManage_view.php', 'de/template_view.php');
     }
 
-    public function action_GetExportData(){
-        $this->model = new Order_Model;        
+    public function action_GetExportData()
+    {
+        $this->model = new Order_Model;
         echo json_encode($this->model->getOrders());
     }
 
-    public function action_DeleteOrder(){
+    public function action_DeleteOrder()
+    {
         $orderId = $_POST['orderId'];
         $this->model = new Order_Model;
 
         print_r($this->model->deleteOrder($orderId));
     }
 
-    public function action_SetStatus(){
+    public function action_SetStatus()
+    {
         $orderId = $_POST['orderId'];
         $status = $_POST['status'];
 
@@ -204,7 +223,7 @@ class Controller_Order extends Controller
             }
         }
     }
-   
+
 
     function mailOrder($mailAdress, $orderId)
     {
@@ -270,7 +289,7 @@ class Controller_Order extends Controller
         ini_set('sendmail_from', "no-reply@building360.ch");
         ini_set('password', 'nUK2E253ZJA-WG7');
 
-        $to = 'roman.lavrov@hhm.ch, daniel.wollenmann@hhm.ch, Galina.Gordienko@hhm.ch'; // 'johny@example.com, sally@example.com'; 
+        $to = 'roman.lavrov@hhm.ch, daniel.wollenmann@hhm.ch, galina.gordienko@hhm.ch, roger.horat@hhm.ch'; // 'johny@example.com, sally@example.com'; 
         $subject = 'Neue Familienordnung'; //Your order was successfully added to system
 
         $message = '

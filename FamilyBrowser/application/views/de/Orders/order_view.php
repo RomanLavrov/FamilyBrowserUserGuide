@@ -58,17 +58,34 @@
         <br-->
         <h4>Wahlen Sie die Kategorie der Familie</h4>
         <hr />
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="systemSelection" id="systemElektro" value="Elektro" checked name="system">
-            <label class="form-check-label" for="systemElektro">
-                Elektro
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="radio" name="systemSelection" id="systemHVAC" value="HLKS" name="system">
-            <label class="form-check-label" for="systemHVAC">
-                HLKS
-            </label>
+
+        <div class="d-flex justify-content-center mb-2">
+
+            <div class="w-75">
+
+                <div class="input-group w-50 mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text" style="background:#274B59; color:white">
+                            <input type="radio" name="systemSelection" id="systemElektro" value="Elektro" checked name="system">
+                        </div>
+                        <label class="input-group-text w-100" for="systemElektro" style="background:#274B59; color:white">
+                            Elektro
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group w-50">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text" style="background:#274B59; color:white">
+                            <input type="radio" name="systemSelection" id="systemHVAC" value="HLKS" name="system">
+                        </div>
+                        <label class="input-group-text w-100" for="systemHVAC" style="background:#274B59; color:white">
+                            HLKS
+                        </label>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="d-flex justify-content-center">
@@ -113,7 +130,7 @@
                     <span class="input-group-text">Datei hochladen ⇪</span>
                 </div>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="file3d" aria-describedby="order-3dFile"  accept=".png, .bmp, .jpeg" style="display:inline-block" name="file3d">
+                    <input type="file" class="custom-file-input" id="file3d" aria-describedby="order-3dFile" accept=".png, .bmp, .jpeg" style="display:inline-block" name="file3d">
                     <label class="custom-file-label" for="file3d" data-browse="Suchen">Mögliches 3D Symbol einfügen...</label>
                 </div>
             </div>
@@ -123,7 +140,7 @@
                     <span class="input-group-text">Datei hochladen ⇪</span>
                 </div>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="fileSpecification" aria-describedby="order-fileSpecification"  accept=".pdf, .docx, .xlsx" style="display:inline-block" name="fileSpecification">
+                    <input type="file" class="custom-file-input" id="fileSpecification" aria-describedby="order-fileSpecification" accept=".pdf, .docx, .xlsx" style="display:inline-block" name="fileSpecification">
                     <label class="custom-file-label" for="fileSpecification" data-browse="Suchen">Datenblatt einfügen...</label>
                 </div>
             </div>
@@ -188,8 +205,11 @@
                 <select class="custom-select" id="order-installationMedium" name="installationMedium">
                     <option selected>Nicht ausgewählt</option>
                     <?php foreach ($this->installationMedium as $medium) : ?>
-                        <option><?php print htmlentities($medium)?></option>
-                    <?php endforeach?>
+                        <option class="electroMedium"><?php print htmlentities($medium) ?></option>
+                    <?php endforeach ?>
+                    <?php foreach ($this->installationMediumHVAC as $medium) : ?>
+                        <option class="hvacMedium"><?php print htmlentities($medium) ?></option>
+                    <?php endforeach ?>
                 </select>
             </div>
 
@@ -229,8 +249,6 @@
                 <input type="text" id="order-depth" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-depth" name="depth">
             </div>
 
-
-
             <div class="input-group mb-3 w-75">
                 <div class="input-group-prepend">
                     <span class="input-group-text">eBKP-H</span>
@@ -252,13 +270,114 @@
                 <input type="text" id="order-omniClass" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-omniClass" name="omniClass">
             </div>
 
-
-
             <div class="input-group mb-3 w-75">
                 <div class="input-group-prepend">
                     <span class="input-group-text">IFC Export As</span>
                 </div>
-                <input type="text" id="order-ifcExportAs" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-ifcExportAs" name="ifcExportAs">
+                <!--input type="text" id="order-ifcExportAs" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-ifcExportAs" name="ifcExportAs"-->
+                <select class="custom-select" id="order-ifcExportAs" name="ifcExportAs">
+                    <option>IfcActuatorType</option>
+                    <option>IfcAirTerminalBoxType</option>
+                    <option>IfcAirTerminalType</option>
+                    <option>IfcAirToAirHeatRecoveryType</option>
+                    <option>IfcAlarmType</option>
+                    <option>IfcAnnotation</option>
+                    <option>IfcBeam</option>
+                    <option>IfcBoilerType</option>
+                    <option>IfcBuildingElementPart</option>
+                    <option>IfcBuildingElementProxy</option>
+                    <option>IfcBuildingStorey</option>
+                    <option>IfcCableCarrierFittingType</option>
+                    <option>IfcCableCarrierSegmentType</option>
+                    <option>IfcCableSegmentType</option>
+                    <option>IfcChillerType</option>
+                    <option>IfcCoilType</option>
+                    <option>IfcColumnType</option>
+                    <option>IfcCompressorType</option>
+                    <option>IfcCondenserType</option>
+                    <option>IfcControllerType</option>
+                    <option>IfcCooledBeamType</option>
+                    <option>IfcCoolingTowerType</option>
+                    <option>IfcCovering</option>
+                    <option>IfcCurtainWall</option>
+                    <option>IfcDamperType</option>
+                    <option>IfcDistributionChamberElementType</option>
+                    <option>IfcDistributionControlElement</option>
+                    <option>IfcDistributionElement</option>
+                    <option>IfcDistributionFlowElement</option>
+                    <option>IfcDoorType</option>
+                    <option>IfcDuctFittingType</option>
+                    <option>IfcDuctSegmentType</option>
+                    <option>IfcDuctSilencerType</option>
+                    <option>IfcElectricApplianceType</option>
+                    <option>IfcElectricFlowStorageDeviceType</option>
+                    <option>IfcElectricGeneratorType</option>
+                    <option>IfcElectricHeaterType</option>
+                    <option>IfcElectricMotorType</option>
+                    <option>IfcElectricTimeControlType</option>
+                    <option>IfcElementAssembly</option>
+                    <option>IfcEnergyConversionDevice</option>
+                    <option>IfcEvaporativeCoolerType</option>
+                    <option>IfcEvaporatorType</option>
+                    <option>IfcFanType</option>
+                    <option>IfcFastenerType</option>
+                    <option>IfcFilterType</option>
+                    <option>IfcFireSuppressionTerminalType</option>
+                    <option>IfcFlowController</option>
+                    <option>IfcFlowFitting</option>
+                    <option>IfcFlowInstrumentType</option>
+                    <option>IfcFlowMeterType</option>
+                    <option>IfcFlowMovingDevice</option>
+                    <option>IfcFlowSegment</option>
+                    <option>IfcFlowStorageDevice</option>
+                    <option>IfcFlowTerminal</option>
+                    <option>IfcFlowTreatmentDevice</option>
+                    <option>IfcFooting</option>
+                    <option>IfcFurnishingElement</option>
+                    <option>IfcFurnitureType</option>
+                    <option>IfcGasTerminalType</option>
+                    <option>IfcHeatExchangerType</option>
+                    <option>IfcHumidifierType</option>
+                    <option>IfcJunctionBoxType</option>
+                    <option>IfcLampType</option>
+                    <option>IfcLightFixtureType</option>
+                    <option>IfcMechanicalFastenerType</option>
+                    <option>IfcMemberType</option>
+                    <option>IfcMotorConnectionType</option>
+                    <option>IfcOpeningElement</option>
+                    <option>IfcOutletType</option>
+                    <option>IfcPile</option>
+                    <option>IfcPipeFittingType</option>
+                    <option>IfcPipeSegmentType</option>
+                    <option>IfcPlateType</option>
+                    <option>IfcProtectiveDeviceType</option>
+                    <option>IfcPumpType</option>
+                    <option>IfcRailing</option>
+                    <option>IfcRamp</option>
+                    <option>IfcReinforcingBar</option>
+                    <option>IfcReinforcingMesh</option>
+                    <option>IfcRoof</option>
+                    <option>IfcSanitaryTerminalType</option>
+                    <option>IfcSensorType</option>
+                    <option>IfcSite</option>
+                    <option>IfcSlab</option>
+                    <option>IfcSpace</option>
+                    <option>IfcSpaceHeaterType</option>
+                    <option>IfcStackTerminalType</option>
+                    <option>IfcStair</option>
+                    <option>IfcSwitchingDeviceType</option>
+                    <option>IfcSystemFurnitureElementType</option>
+                    <option>IfcTankType</option>
+                    <option>IfcTransformerType</option>
+                    <option>IfcTransportElementType</option>
+                    <option>IfcTubeBundleType</option>
+                    <option>IfcUnitaryEquipmentType</option>
+                    <option>IfcValveType</option>
+                    <option>IfcWall</option>
+                    <option>IfcWasteTerminalType</option>
+                    <option>IfcWindowType</option>
+                </select>
+
             </div>
 
             <div class="input-group mb-3 w-75">

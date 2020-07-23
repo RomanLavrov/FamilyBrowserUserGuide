@@ -91,16 +91,16 @@
                 <a class="nav-button" target="_self" data-name="Tools" href="/FamilyBrowser/de/Tools">Toolbox</a>
             </div>
 
-            <button class="accordion">Familie beantragen</button>
-            <div class="panel">
-                <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order">Familie beantragen</a>
-                <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order/Status">Status der Bestellung</a>
-                <?php if (isset($_SESSION['user'])) : ?>
-                    <?php if ($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Manager') : ?>
+            <?php if (isset($_SESSION['user'])) : ?>
+                <?php if ($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Manager') : ?>
+                    <button class="accordion">Familie beantragen</button>
+                    <div class="panel">
+                        <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order">Familie beantragen</a>
+                        <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order/Status">Status der Bestellung</a>
                         <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order/Manage">Auftragsverwaltung</a>
-                    <?php endif ?>
+                    </div>
                 <?php endif ?>
-            </div>
+            <?php endif ?>
         </div>
 
         <div class="col-md" style="padding:0px; margin-bottom:0px; margin-right:0px;">

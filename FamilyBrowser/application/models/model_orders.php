@@ -14,6 +14,7 @@ class Order_Model extends Model{
             }
         }
 
+        $orders = array_reverse($orders);
         return $orders;
     }
 
