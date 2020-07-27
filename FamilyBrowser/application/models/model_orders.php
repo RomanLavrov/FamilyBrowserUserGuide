@@ -22,7 +22,7 @@ class Order_Model extends Model
     public function getOrdersForExcel()
     {
         $orders = [];
-        $sql = "SELECT idOrders, Mail, Company, System, RevitCategory, Description, Mount, Placement,
+        $sql = "SELECT idOrders, Mail, Orders.Company, System, RevitCategory, Description, Mount, Placement,
         InstallationMedium, Diameter, Height, Depth, Width, eBKP, BKP, OmniClass, IFCExportAs, File2d, File3d, FileSpecification, CreatedAt, idOrderStatus as StatusID, OrderStatus.Name as StatusEN, NameDE as StatusDE
         FROM hhmeweme_orderFamilies.Orders 
        left join OrderStatus on Orders.StatusId = OrderStatus.idOrderStatus 
@@ -65,7 +65,7 @@ class Order_Model extends Model
         $FileSpecification = $order['fileSpecification'];
         $CreatedAt = date('Y-m-d H:i:s');
 
-        $sql = "INSERT INTO `hhmeweme_orderFamilies`.`Orders`
+        $sql = "INSERT INTO `Orders`
          (`Name`, `Mail`, `Company`, `Project`, `System`, `RevitCategory`, `Description`, 
          `Mount`, `Placement`, `InstallationMedium`, `Diameter`, `Height`, 
          `Depth`, `Width`, `eBKP`, `BKP`, `OmniClass`, `IFCexportAs`, 
@@ -111,7 +111,7 @@ class Order_Model extends Model
 
     public function setStatus($orderId, $status)
     {
-        $sql = "UPDATE `hhmeweme_orderFamilies`.`Orders` SET `StatusId` = '$status' WHERE (`idOrders` = '$orderId')";
+        $sql = "UPDATE `Orders` SET `StatusId` = '$status' WHERE (`idOrders` = '$orderId')";
         $result = false;
         if ($query = $this->pdo->prepare($sql)) {
             if ($query->execute()) {

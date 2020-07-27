@@ -32,6 +32,7 @@ $(".orderStatusSelect").each(function () {
 $("#btnExcelExport").click(function () {
     console.log("Export to Excel");
     $.get("/FamilyBrowser/de/Order/GetExportData", function (data) {
+        console.log(data);
         var dataArray = [];
         data = JSON.parse(data);
         console.table(data);

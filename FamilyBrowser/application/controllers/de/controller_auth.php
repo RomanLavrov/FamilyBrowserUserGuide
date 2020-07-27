@@ -12,11 +12,13 @@ class Controller_Auth extends Controller
         $errorText = null;
         if (isset($_POST) && count($_POST) > 0) {
             $this->model = new Auth_Model;
-            $role = $this->model->getUser($_POST['login'], $_POST['password']);
-            if (isset($role)) {
+            $user = $this->model->getUser($_POST['login'], $_POST['password']);
+          
+            if (isset($user)) {
                 session_start();
-                $_SESSION['role'] = $role;
-                $_SESSION['user'] = $_POST['login'];
+                $_SESSION['role'] = $user['RoleName'];
+                $_SESSION['user'] = $user['FirstName'].' '.$user['LastName'];
+                $_SESSION['userData'] = $user;
                 header('location: /FamilyBrowser/de/');
             } else {
                 $errorText = "Benutzer nicht gefunden oder falsches Passwort.";

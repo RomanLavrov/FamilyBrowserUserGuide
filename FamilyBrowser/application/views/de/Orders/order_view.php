@@ -5,28 +5,28 @@
         <h4>Antragsteller</h4>
         <hr />
         <div class="form-row d-flex justify-content-center">
-
+           
             <div class="form-row w-75">
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="order-name">Vorname/Name</span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-name" name="name">
+                    <input type="text" class="form-control" placeholder="<?php print htmlentities(isset($this->user) ? $this->user['FirstName']." ".$this->user['LastName'] : "Ihre Antwort eingeben") ?>" aria-label="name" aria-describedby="order-name" name="name">
                 </div>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">E-Mail Adresse</span>
                     </div>
-                    <input type="email" id="order-mail" class="form-control" required placeholder="Ihre Antwort eingeben" aria-label="mail" aria-describedby="order-mail" name="mail">
+                    <input type="email" id="order-mail" class="form-control" required placeholder="<?php print htmlentities(isset($this->user) ? $this->user['Login'] : "Ihre Antwort eingeben") ?>" aria-label="mail" aria-describedby="order-mail" name="mail">
                 </div>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Firma</span>
                     </div>
-                    <input type="text" id="order-company" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="company" aria-describedby="order-company" name="company">
+                    <input type="text" id="order-company" class="form-control" placeholder="<?php print htmlentities(isset($this->user) ? $this->user['Company'] : "Ihre Antwort eingeben") ?>" aria-label="company" aria-describedby="order-company" name="company">
                 </div>
 
                 <div class="input-group mb-3">

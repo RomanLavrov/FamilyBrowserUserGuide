@@ -132,6 +132,7 @@ class Controller_Order extends Controller
 
     public function action_index()
     {
+        $this->view->user = $_SESSION['userData'];
         $this->view->installationMedium = $this->installationMedium;
         $this->view->installationMediumHVAC = $this->installationMediumHVAC;
         $this->view->revitCategories = $this->categories;
@@ -289,7 +290,8 @@ class Controller_Order extends Controller
         ini_set('sendmail_from', "no-reply@building360.ch");
         ini_set('password', 'nUK2E253ZJA-WG7');
 
-        $to = 'roman.lavrov@hhm.ch, daniel.wollenmann@hhm.ch, galina.gordienko@hhm.ch, roger.horat@hhm.ch'; // 'johny@example.com, sally@example.com'; 
+        //$to = 'roman.lavrov@hhm.ch, daniel.wollenmann@hhm.ch, galina.gordienko@hhm.ch, roger.horat@hhm.ch';
+        $to = 'roman.lavrov@hhm.ch';
         $subject = 'Neue Familienordnung'; //Your order was successfully added to system
 
         $message = '
