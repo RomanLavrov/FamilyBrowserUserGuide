@@ -1,4 +1,3 @@
-
 $(".deleteOrder").each(function () {
 
     this.onclick = function () {
@@ -35,23 +34,24 @@ $("#btnExcelExport").click(function () {
     $.get("/FamilyBrowser/de/Order/GetExportData", function (data) {
         var dataArray = [];
         data = JSON.parse(data);
+        console.table(data);
         var header = Object.keys(data[0]);
         dataArray.push(header);
 
         data.forEach(element => {
-            var dataRow = Object.values(element);
-
-            dataRow[20] = (dataRow[20].includes("logo") || dataRow[20] == "")? "No File" : {v:"", f: `HYPERLINK("https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/${dataRow[20]}")`, t: 's'};
-            dataRow[21] = (dataRow[21].includes("logo") || dataRow[21] == "")? "No File" : {v:"", f: `HYPERLINK("https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/${dataRow[21]}")`, t: 's'};
-            dataRow[22] = (dataRow[22].includes("logo") || dataRow[22] == "")? "No File" : {v:"", f: `HYPERLINK("https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/${dataRow[22]}")`, t: 's'};
-           
-
-            dataArray.push(dataRow);
+            if (element['StatusID'] != 5) {
+                var dataRow = Object.values(element);
+                dataRow[17] = (dataRow[17].includes("logo") || dataRow[17] == "") ? "No File" : { v: "", f: `HYPERLINK("https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/${dataRow[17]}")`, t: 's' };
+                dataRow[18] = (dataRow[18].includes("logo") || dataRow[18] == "") ? "No File" : { v: "", f: `HYPERLINK("https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/${dataRow[18]}")`, t: 's' };
+                dataRow[19] = (dataRow[19].includes("logo") || dataRow[19] == "") ? "No File" : { v: "", f: `HYPERLINK("https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/${dataRow[19]}")`, t: 's' };
+                dataArray.push(dataRow);
+            }
         });
 
         console.log(dataArray);
 
         var wb = XLSX.utils.book_new();
+        
         wb.Props = {
             Title: "SheetJS Tutorial",
             Subject: "Test",
@@ -63,7 +63,7 @@ $("#btnExcelExport").click(function () {
         console.log(ws);
         wb.SheetNames.push("Test Sheet");
         wb.Sheets['Test Sheet'] = ws;
-        
+
         var wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
 
         function s2ab(s) {

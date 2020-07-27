@@ -1,5 +1,5 @@
 <button class="btn btn-primary mb-2" id="btnExcelExport">Excel Exportieren</button>
-<table class="table table-hover table-bordered">
+<table class="table table-sm table-hover table-bordered">
     <colgroup>
         <col span="1" style="width: 5%;">
         <col span="1" style="width: 10%;">

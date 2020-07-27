@@ -178,7 +178,7 @@ class Controller_Order extends Controller
     public function action_GetExportData()
     {
         $this->model = new Order_Model;
-        echo json_encode($this->model->getOrders());
+        echo json_encode($this->model->getOrdersForExcel());
     }
 
     public function action_DeleteOrder()

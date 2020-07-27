@@ -69,14 +69,32 @@ function createUUID() {
 
 $(".hvacMedium").hide();
 
-$("#systemElektro").change(function() {
-   
+$("#systemElektro").change(function () {
+
     $(".hvacMedium").hide();
     $(".electroMedium").show();
 });
 
-$("#systemHVAC").change(function() {   
+$("#systemHVAC").change(function () {
     $(".hvacMedium").show();
     $(".electroMedium").hide();
+});
+
+$("#systemArchitektur").change(function () {
+    if ($(this).is(':checked')) {
+        $('#extendedOptions').hide();
+    } 
+});
+
+$("#systemHVAC").change(function () {
+    if ($(this).is(':checked')) {
+        $('#extendedOptions').show();
+    } 
+});
+
+$("#systemElektro").change(function () {
+    if ($(this).is(':checked')) {
+        $('#extendedOptions').show();
+    } 
 });
 
