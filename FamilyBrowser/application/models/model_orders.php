@@ -6,7 +6,7 @@ class Order_Model extends Model
     public function getOrders()
     {
         $orders = [];
-        $sql = "SELECT * FROM Orders left join OrderStatus on Orders.StatusId = OrderStatus.idOrderStatus";
+        $sql = "SELECT *, Orders.Name as 'UserName' FROM Orders left join OrderStatus on Orders.StatusId = OrderStatus.idOrderStatus";
         if ($query = $this->pdo->prepare($sql)) {
             if ($query->execute()) {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
@@ -113,6 +113,17 @@ class Order_Model extends Model
     {
         $sql = "UPDATE `Orders` SET `StatusId` = '$status' WHERE (`idOrders` = '$orderId')";
         $result = false;
+        if ($query = $this->pdo->prepare($sql)) {
+            if ($query->execute()) {
+                $result = true;
+            }
+        }
+
+        return $result;
+    }
+
+    public function setReadyFamily($idOrder, $fileName){
+        $sql = "UPDATE `Orders` SET `FamilyFile` = '$fileName' WHERE (`idOrders` = '$idOrder');";
         if ($query = $this->pdo->prepare($sql)) {
             if ($query->execute()) {
                 $result = true;

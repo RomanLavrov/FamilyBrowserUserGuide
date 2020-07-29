@@ -30,7 +30,7 @@
                 <td>
                     <div class="d-flex flex-row">
                         <div class="p-2 w-25">Name:</div>
-                        <div class="p-2 w-75"><?php print htmlentities($order['Name']) ?></div>
+                        <div class="p-2 w-75"><?php print htmlentities($order['UserName']) ?></div>
                     </div>
                     <div class="d-flex flex-row">
                         <div class="p-2 w-25">E-mail:</div>
@@ -97,34 +97,30 @@
                     <div class="d-flex flex-row">
                         <div class="p-2 w-50 align-self-center">2D Symbol:</div>
                         <div class="p-2 w-50 align-self-center">
-                            <img class="img-thumbnail rounded file-preview" src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File2d']) ?>" alt="No Image"   data-link = "<?php  print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File2d'])?>" >
+                            <img class="img-thumbnail rounded file-preview" src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File2d']) ?>" alt="No Image" data-link="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File2d']) ?>">
                         </div>
                     </div>
                     <div class="d-flex flex-row">
                         <div class="p-2 w-50 align-self-center">3D Symbol:</div>
                         <div class="p-2 w-50 align-self-center">
-                            <img class="img-thumbnail rounded file-preview" 
-                            src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File3d']) ?>" alt="No Image"  
-                            data-link = "<?php  print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File3d'])?>">
+                            <img class="img-thumbnail rounded file-preview" src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File3d']) ?>" alt="No Image" data-link="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File3d']) ?>">
                         </div>
                     </div>
                     <div class="d-flex flex-row">
                         <div class="p-2 w-50 align-self-center">Spezifikation</div>
                         <div class="p-2 w-50 align-self-center">
-                            <img class="img-thumbnail rounded file-preview" 
-                            src="<?php if (strpos($order['FileSpecification'], '.pdf') > 0) {
-                                                                            print htmlentities('/FamilyBrowser/application/orderFilesUploads/logo-pdf.png');
-                                                                        } else {
-                                                                            print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['FileSpecification']);
-                                                                        } ?>" alt="No Image"
-                            data-link = "<?php  print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['FileSpecification'])?>">
+                            <img class="img-thumbnail rounded file-preview" src="<?php if (strpos($order['FileSpecification'], '.pdf') > 0) {
+                                                                                        print htmlentities('/FamilyBrowser/application/orderFilesUploads/logo-pdf.png');
+                                                                                    } else {
+                                                                                        print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['FileSpecification']);
+                                                                                    } ?>" alt="No Image" data-link="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['FileSpecification']) ?>">
                         </div>
                     </div>
                 </td>
                 <td style="text-align:center"><?php print htmlentities($order['CreatedAt']) ?></td>
                 <td style="text-align:center">
                     <div>
-                        <div class="input-group mb-3">
+                        <div class="input-group mb-1">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" for="order-mount">Status der Bestellung</label>
                             </div>
@@ -143,6 +139,20 @@
                     <div>
                         <button class="btn btn-danger w-100 deleteOrder" data-id=<?php print htmlentities($order['idOrders']) ?>>Auftrag löschen</button>
                     </div>
+
+                    <form class="mb-1" id="<?php print htmlentities('familyForm' . $order['idOrders']) ?>">
+                        <div class="input-group mt-3 mb-0">
+                            <div class="custom-file">
+                                <input type="text " name='orderId' value="<?php print htmlentities('fileFamily' . $order['idOrders']) ?>">
+                                <input type="file" class="custom-file-input familyUpload" id="<?php print htmlentities('fileFamily' . $order['idOrders']) ?>" aria-describedby="response-family" accept=".rfa" style="display:inline-block" name="fileFamily">
+                                <label class="custom-file-label text-left" for="<?php print htmlentities('fileFamily' . $order['idOrders']) ?>" data-browse="Suchen">Fertige familie...</label>
+                            </div>
+                        </div>
+                        <button hidden class="btn btn-success w-100 mt-1 submitFamily" type="submit" id="<?php print htmlentities('btnSubmitfileFamily' . $order['idOrders']) ?>"  data-form="<?php print htmlentities('familyForm' . $order['idOrders']) ?>" data-file="<?php print htmlentities('fileFamily' . $order['idOrders']) ?>" data-order="<?php print htmlentities($order['idOrders']) ?>" style="background:#274B59; border: 1px solid #274B59">Hohlade</button>
+                    </form>
+
+                    <a class="btn btn-success w-100 mt-0" <?php print htmlentities(isset($order['FamilyFile']) ?: 'hidden') ?> id="<?php print htmlentities("downloadLink" . $order['idOrders']) ?>" href="<?php print htmlentities('/readyFamilies/' . $order['FamilyFile']) ?>" download="<?php print htmlentities(substr($order['FamilyFile'], 15, strlen($order['FamilyFile']))) ?>">Herunterladen</a>
+
                 </td>
             <tr>
             <?php endforeach ?>

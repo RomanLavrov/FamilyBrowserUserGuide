@@ -30,9 +30,7 @@ submitButton.onclick = function () {
         omniClass: $("#order-omniClass").val(),
         ifcExport: $("#order-ifcExportAs").val(),
         ifcExportType: $("#order-ifcExportType").val()
-    }
-
-  
+    }  
 
     $.post("/FamilyBrowser/de/Order/Submit", orderData, function (data) {
         console.log(data);
@@ -44,14 +42,12 @@ $("#file2d").change(function () {
     var fileName = this.value.substring(this.value.lastIndexOf('\\') + 1);
     $('label[for=' + this.id + ']').text(fileName);
     file2d = createUUID() + fileName;
-
 });
 
 $("#file3d").change(function () {
     var fileName = this.value.substring(this.value.lastIndexOf('\\') + 1);
     $('label[for=' + this.id + ']').text(fileName);
     file3d = createUUID() + fileName;
-
 });
 
 $("#fileSpecification").change(function () {

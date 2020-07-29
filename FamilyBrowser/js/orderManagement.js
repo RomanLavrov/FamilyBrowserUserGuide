@@ -52,7 +52,7 @@ $("#btnExcelExport").click(function () {
         console.log(dataArray);
 
         var wb = XLSX.utils.book_new();
-        
+
         wb.Props = {
             Title: "SheetJS Tutorial",
             Subject: "Test",
@@ -84,5 +84,51 @@ $(".file-preview").each(function () {
             window.open(this.dataset.link);
         }
     }
-})
+});
+
+
+$(".familyUpload").each(function () {
+    $(this).change(function () {
+        var fileName = this.value.substring(this.value.lastIndexOf('\\') + 1);
+        console.log(fileName);
+       
+
+        $('label[for=' + this.id + ']').text(fileName);
+        $(`#btnSubmit${this.id}`).click();
+    });
+});
+
+$(".submitFamily").each(function () {
+    $(this).click(function (event) {
+        event.preventDefault();
+        //console.log(document.getElementById(this.dataset.form));
+        //console.log(document.getElementById(this.dataset.file));
+        var fileFamily = document.getElementById(this.dataset.file).files[0];
+        var orderId = this.dataset.order;
+        console.log(orderId);
+       
+        var formData = new FormData();
+        formData.append("fileFamily", fileFamily);
+        formData.append("orderId", orderId);
+
+        var url = '/FamilyBrowser/de/Order/UploadFamily';
+        $.ajax({
+            url: url,
+            method: 'POST',
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (response) {              
+                response = JSON.parse(response);
+                console.log(response.fileName);
+                var fileName = response.fileName;
+          
+                $(`#downloadLink${orderId}`).removeAttr('hidden');
+                $(`#downloadLink${orderId}`).attr("href", `/readyFamilies/${fileName}`);
+                $(`#downloadLink${orderId}`).attr("download", fileName.substring(15, fileName.length));
+            }
+        });
+    });
+});
 

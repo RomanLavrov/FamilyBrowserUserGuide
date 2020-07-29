@@ -118,7 +118,7 @@ class Controller_Order extends Controller
         '230V'
     ];
 
-    private $installationMediumHVAC =[
+    private $installationMediumHVAC = [
         'Rücklauf',
         'Vorlauf',
         'Kaltwasser',
@@ -132,11 +132,15 @@ class Controller_Order extends Controller
 
     public function action_index()
     {
-        $this->view->user = $_SESSION['userData'];
-        $this->view->installationMedium = $this->installationMedium;
-        $this->view->installationMediumHVAC = $this->installationMediumHVAC;
-        $this->view->revitCategories = $this->categories;
-        $this->view->generate('Orders/order_view.php', 'de/template_view.php');
+        if (isset($_SESSION['userData'])) {
+            $this->view->user = $_SESSION['userData'];
+            $this->view->installationMedium = $this->installationMedium;
+            $this->view->installationMediumHVAC = $this->installationMediumHVAC;
+            $this->view->revitCategories = $this->categories;
+            $this->view->generate('Orders/order_view.php', 'de/template_view.php');
+        } else {
+            header('Location: /FamilyBrowser/de/Auth/Login');
+        }
     }
 
     public function action_Submit()
@@ -168,12 +172,14 @@ class Controller_Order extends Controller
 
     public function action_Manage()
     {
-        $this->model = new Order_Model;
-
-        $this->view->statuses = $this->model->getStatuses();
-        $this->view->orders = $this->model->getOrders();
-
-        $this->view->generate('Orders/orderManage_view.php', 'de/template_view.php');
+        if (isset($_SESSION['userData'])) {
+            $this->model = new Order_Model;
+            $this->view->statuses = $this->model->getStatuses();
+            $this->view->orders = $this->model->getOrders();
+            $this->view->generate('Orders/orderManage_view.php', 'de/template_view.php');
+        } else {
+            header('Location: /FamilyBrowser/de/Auth/Login');
+        }
     }
 
     public function action_GetExportData()
@@ -224,7 +230,6 @@ class Controller_Order extends Controller
             }
         }
     }
-
 
     function mailOrder($mailAdress, $orderId)
     {
@@ -328,5 +333,24 @@ class Controller_Order extends Controller
         );
 
         mail($to, $subject, $message, $headers);
+    }
+
+    function action_UploadFamily()
+    {
+        $orderId = $_POST['orderId'];
+        $file = $_FILES['fileFamily'];
+
+        $targetDir = "./application/readyFamilies/";
+        $uniqueFileName = uniqid(true) . "-" . basename($file['name']);
+        $targetFile = $targetDir . $uniqueFileName;
+
+        if (move_uploaded_file($file["tmp_name"], $targetFile)) {
+            $this->model = new Order_Model;
+            $this->model->setReadyFamily($orderId, $uniqueFileName);
+
+            echo json_encode(array('fileName' => $uniqueFileName));
+        } else {
+            echo ('File not uploaded');
+        }
     }
 }

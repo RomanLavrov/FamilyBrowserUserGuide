@@ -92,13 +92,15 @@
             </div>
 
             <?php if (isset($_SESSION['user'])) : ?>
-                <?php if ($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Manager') : ?>
+                <?php if ($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Manager' || $_SESSION['role'] == 'Families Developer') : ?>
                     <button class="accordion">Familie beantragen</button>
-                    <div class="panel">                       
+                    <div class="panel">
                         <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order">Familie beantragen</a>
                         <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order/Status">Status der Bestellung</a>
-                        <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order/Manage">Auftragsverwaltung</a>
-                        <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/User">Benutzerverwaltung</a>
+                        <?php if ($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Manager') : ?>
+                            <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/Order/Manage">Auftragsverwaltung</a>
+                            <a class="nav-button" target="_self" data-name="FamilyOrderForm" href="/FamilyBrowser/de/User">Benutzerverwaltung</a>
+                        <?php endif ?>
                     </div>
                 <?php endif ?>
             <?php endif ?>
