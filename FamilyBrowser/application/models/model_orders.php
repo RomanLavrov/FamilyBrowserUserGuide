@@ -60,9 +60,9 @@ class Order_Model extends Model
         $OmniClass = $order['omniClass'];
         $IFCexportAs = $order['ifcExportAs'];
         $IFCexportType = $order['ifcExportType'];
-        $File2d = $order['file2d'];
-        $File3d = $order['file3d'];
-        $FileSpecification = $order['fileSpecification'];
+        $File2d = isset($order['file2dLink']) ? $order['file2dLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/".$order['file2d'];
+        $File3d = isset($order['file3dLink']) ? $order['file3dLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/".$order['file3d'];
+        $FileSpecification = isset($order['fileSpecificationLink']) ? $order['fileSpecificationLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/".$order['fileSpecification'];
         $CreatedAt = date('Y-m-d H:i:s');
 
         $sql = "INSERT INTO `Orders`
@@ -122,7 +122,8 @@ class Order_Model extends Model
         return $result;
     }
 
-    public function setReadyFamily($idOrder, $fileName){
+    public function setReadyFamily($idOrder, $fileName)
+    {
         $sql = "UPDATE `Orders` SET `FamilyFile` = '$fileName' WHERE (`idOrders` = '$idOrder');";
         if ($query = $this->pdo->prepare($sql)) {
             if ($query->execute()) {

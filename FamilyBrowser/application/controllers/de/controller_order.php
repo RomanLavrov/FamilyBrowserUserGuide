@@ -145,6 +145,7 @@ class Controller_Order extends Controller
 
     public function action_Submit()
     {
+        print_r($_POST);
         $order = $_POST;
 
         foreach ($_FILES  as $fileId => $file) {
@@ -158,7 +159,7 @@ class Controller_Order extends Controller
 
         $orderId = $this->model->createOrder($order);
         $this->mailOrder($_POST['mail'], $orderId);
-        $this->mailManager($orderId);
+        $this->mailManager($orderId, $order);
         $this->view->orders = $this->model->getOrders();
         $this->view->generate('Orders/orderStatus_view.php', 'de/template_view.php');
     }
@@ -288,14 +289,15 @@ class Controller_Order extends Controller
         mail($to, $subject, $message, $headers);
     }
 
-    function mailManager($orderId)
+    function mailManager($orderId, $order)
     {
+      
         ini_set('SMTP', "asmtp.mail.hostpoint.ch");
         ini_set('smtp_port', "465");
         ini_set('sendmail_from', "no-reply@building360.ch");
         ini_set('password', 'nUK2E253ZJA-WG7');
 
-        //$to = 'roman.lavrov@hhm.ch, daniel.wollenmann@hhm.ch, galina.gordienko@hhm.ch, roger.horat@hhm.ch';
+       // $to = 'roman.lavrov@hhm.ch, daniel.wollenmann@hhm.ch, galina.gordienko@hhm.ch, roger.horat@hhm.ch';
         $to = 'roman.lavrov@hhm.ch';
         $subject = 'Neue Familienordnung'; //Your order was successfully added to system
 
@@ -305,6 +307,25 @@ class Controller_Order extends Controller
         <head>
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
                 integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+                <style>
+                table{
+                    margin:0, auto;
+                    padding:10px;
+                }
+                tr{
+                    border:1px solid black
+                }
+                
+                th{
+                    border:1px solid black;
+                    padding:8px;
+                }
+                td{
+                    padding:8px;
+                    border:1px solid black;
+                }
+
+                </style>
         </head>
         
         <body>
@@ -314,9 +335,46 @@ class Controller_Order extends Controller
                 Neue Familienbestellung mit Nummer ' . $orderId . ' wurde soeben aufgegeben. 
                 Bitte überprüfen Sie die Bestellung und geben Sie dem Kunden eine Rückmeldung.
             </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>System</th>
+                            <th>Revit Kategorie</th>
+                            <th>Beschreibung</th>
+                            <th>Optionen</th>
+                            <th>Größe</th>
+                            <th>Datein</th>
+                            <th>Datum der Bestellung</th>
+                        </tr>
+                    </thead>
+                <tbody>
+                    <tr>
+                        <td>'.$order['systemSelection'].'</td>
+                        <td>'.$order['revitCategory'].'</td>
+                        <td>'.$order['description'].'</td>
+                        <td>
+                            <div>Installationsart: '.$order['mount'].'</div>
+                            <div>Installationsort: '.$order['placement'].'</div>
+                            <div>Installationsmedium: '.$order['installationMedium'].'</div>
+                        </td>
+                        <td>
+                            <div>Höhe: '.$order['height'].'</div>
+                            <div>Breite: '.$order['width'].'</div>
+                            <div>Tiefe: '.$order['depth'].'</div>
+                            <div>Durchmesser: '.$order['diameter'].'</div>
+                        </td>
+                        <td>
+                            <div><a href="'.$order['file2d'].'">2D Symbol</a></div>
+                            <div><a href="'.$order['file3d'].'">3D Symbol</a></div>
+                            <div><a href="'.$order['fileSpecification'].'">Spezifikation</a></div>
+                        </td>
+                        <td>'.date('d-m-Y').'</td>
+                    </tr>
+                </tbody>
+            </table>
 
             <div>
-                <a  href="https://help.building360.ch/FamilyBrowser/en/Order/Submit">Bestellstatus prüfen</a> </div>
+                <a  href="https://help.building360.ch/FamilyBrowser/en/Order/Submit">Bestellstatus prüfen</a></div>
             </div> 
              <br />
             <div>Mit freundlichen Grüßen,</div>
@@ -331,7 +389,7 @@ class Controller_Order extends Controller
             'Content-type' => 'text/html',
             'X-Mailer' => 'PHP/' . phpversion()
         );
-
+      
         mail($to, $subject, $message, $headers);
     }
 

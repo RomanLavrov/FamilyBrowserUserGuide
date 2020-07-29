@@ -94,3 +94,54 @@ $("#systemElektro").change(function () {
     } 
 });
 
+//-------Swap 2D File input
+$("#file2dLinkInput").hide();
+
+$("#file2DswapInput").click(function(){   
+    if ($("#file2dFileInput").is(":hidden")){      
+        $("#file2dFileInput").show();
+        $("#file2dLinkInput").hide();
+        $(this).text("Oder Link angeben");
+    }
+    else{
+        $("#file2dFileInput").hide();
+        $("#file2dLinkInput").show();
+        $(this).text("Oder Datei angeben");
+    }
+});
+//-----------------------------
+
+//-------Swap 3D File input
+$("#file3dLinkInput").hide();
+
+$("#file3DswapInput").click(function(){   
+    if ($("#file3dFileInput").is(":hidden")){      
+        $("#file3dFileInput").show();
+        $("#file3dLinkInput").hide();
+        $(this).text("Oder Link angeben");
+    }
+    else{
+        $("#file3dFileInput").hide();
+        $("#file3dLinkInput").show();
+        $(this).text("Oder Datei angeben");
+    }
+});
+//-----------------------------
+
+//-------Swap 3D File input
+$("#fileSpecLinkInput").hide();
+
+$("#fileSpecSwapInput").click(function(){   
+    if ($("#fileSpecFileInput").is(":hidden")){      
+        $("#fileSpecFileInput").show();
+        $("#fileSpecLinkInput").hide();
+        $(this).text("Oder Link angeben");
+    }
+    else{
+        $("#fileSpecFileInput").hide();
+        $("#fileSpecLinkInput").show();
+        $(this).text("Oder Datei angeben");
+    }
+});
+//-----------------------------
+

@@ -79,13 +79,13 @@
                     <div class="d-flex flex-row">
                         <div class="p-2 w-50 align-self-center">2D Symbol:</div>
                         <div class="p-2 w-50 align-self-center">
-                            <img class="img-thumbnail rounded file-preview" src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File2d']) ?>" alt="No Image" data-link="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File2d']) ?>">
+                            <img class="img-thumbnail rounded file-preview" src="<?php print htmlentities($order['File2d']) ?>" alt="No Image" data-link="<?php print htmlentities($order['File2d']) ?>">
                         </div>
                     </div>
                     <div class="d-flex flex-row">
                         <div class="p-2 w-50 align-self-center">3D Symbol:</div>
                         <div class="p-2 w-50 align-self-center">
-                            <img class="img-thumbnail rounded file-preview" src="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File3d']) ?>" alt="No Image" data-link="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['File3d']) ?>">
+                            <img class="img-thumbnail rounded file-preview" src="<?php print htmlentities($order['File3d']) ?>" alt="No Image" data-link="<?php print htmlentities( $order['File3d']) ?>">
                         </div>
                     </div>
                     <div class="d-flex flex-row">
@@ -94,8 +94,8 @@
                             <img class="img-thumbnail rounded file-preview" src="<?php if (strpos($order['FileSpecification'], '.pdf') > 0) {
                                                                                         print htmlentities('/FamilyBrowser/application/orderFilesUploads/logo-pdf.png');
                                                                                     } else {
-                                                                                        print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['FileSpecification']);
-                                                                                    } ?>" alt="No Image" data-link="<?php print htmlentities('/FamilyBrowser/application/orderFilesUploads/' . $order['FileSpecification']) ?>">
+                                                                                        print htmlentities($order['FileSpecification']);
+                                                                                    } ?>" alt="No Image" data-link="<?php print htmlentities($order['FileSpecification']) ?>">
                         </div>
                     </div>
                 </td>
