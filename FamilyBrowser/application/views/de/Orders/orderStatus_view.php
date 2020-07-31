@@ -88,6 +88,7 @@
                             <img class="img-thumbnail rounded file-preview" src="<?php print htmlentities($order['File3d']) ?>" alt="No Image" data-link="<?php print htmlentities( $order['File3d']) ?>">
                         </div>
                     </div>
+                   
                     <div class="d-flex flex-row">
                         <div class="p-2 w-50 align-self-center">Spezifikation</div>
                         <div class="p-2 w-50 align-self-center">

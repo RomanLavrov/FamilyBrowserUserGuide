@@ -2,7 +2,6 @@
 
 class Order_Model extends Model
 {
-
     public function getOrders()
     {
         $orders = [];
@@ -10,13 +9,61 @@ class Order_Model extends Model
         if ($query = $this->pdo->prepare($sql)) {
             if ($query->execute()) {
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                    $orders[] = $row;
+
+                    $order = $row;
+                    $order['ReservedNumbers'] = $this->getReservedNumbers($order['idOrders']);
+                    /*
+                    echo("<pre>");
+                    print_r($order);
+                    echo("</pre>");*/
+                    $orders[] = $order;
                 }
             }
         }
 
         $orders = array_reverse($orders);
         return $orders;
+    }
+
+    private function getReservedNumbers($orderId)
+    {
+        $reservedNumbers = [];
+        $sql = "SELECT * FROM `ReserveTypeNumber` WHERE OrderId = '$orderId'";
+        if ($query = $this->pdo->prepare($sql)) {
+            if ($query->execute()) {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+
+                    switch ($row['System']) {
+                        case 'Electrics':
+                            $prefix = "E";
+                            break;
+
+                        case 'Heating':
+                            $prefix = "H";
+                            break;
+
+                        case 'Ventilation':
+                            $prefix = "L";
+                            break;
+
+                        case 'AirConditioning':
+                            $prefix = "K";
+                            break;
+
+                        case 'Piping':
+                            $prefix = "S";
+                            break;
+
+                        default:
+                            $prefix = "";
+                            break;
+                    }
+
+                    $reservedNumbers[] =  $prefix . $row['ReservedNumber'];
+                }
+            }
+        }
+        return $reservedNumbers;
     }
 
     public function getOrdersForExcel()
@@ -60,9 +107,14 @@ class Order_Model extends Model
         $OmniClass = $order['omniClass'];
         $IFCexportAs = $order['ifcExportAs'];
         $IFCexportType = $order['ifcExportType'];
-        $File2d = isset($order['file2dLink']) ? $order['file2dLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/".$order['file2d'];
-        $File3d = isset($order['file3dLink']) ? $order['file3dLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/".$order['file3d'];
-        $FileSpecification = isset($order['fileSpecificationLink']) ? $order['fileSpecificationLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/".$order['fileSpecification'];
+
+        $file2D = isset($order['file2d'])? $order['file2d'] : 'logo.png';
+        $file3D = isset($order['file3d'])? $order['file3d'] : 'logo.png';
+        $fileSpec = isset( $order['fileSpecification'])?  $order['fileSpecification'] : 'logo.png';
+
+        $File2d = $order['file2dLink']!='' ? $order['file2dLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/" . $file2D;
+        $File3d = $order['file3dLink']!='' ? $order['file3dLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/" . $file3D;
+        $FileSpecification = $order['fileSpecificationLink']!='' ? $order['fileSpecificationLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/" . $fileSpec;
         $CreatedAt = date('Y-m-d H:i:s');
 
         $sql = "INSERT INTO `Orders`
@@ -125,6 +177,39 @@ class Order_Model extends Model
     public function setReadyFamily($idOrder, $fileName)
     {
         $sql = "UPDATE `Orders` SET `FamilyFile` = '$fileName' WHERE (`idOrders` = '$idOrder');";
+        if ($query = $this->pdo->prepare($sql)) {
+            if ($query->execute()) {
+                $result = true;
+            }
+        }
+
+        return $result;
+    }
+
+    public function getLargestReservedNumber($system, $version)
+    {
+        $sql = "SELECT ReservedNumber FROM `ReserveTypeNumber` WHERE System = '$system' AND Version = '$version' Order by ReservedNumber desc limit 1";
+
+        $largestLocal = '';
+        if ($query = $this->pdo->prepare($sql)) {
+            if ($query->execute()) {
+                while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                    $largestLocal = intval($row['ReservedNumber']);
+                }
+            }
+        }
+
+        return $largestLocal;
+    }
+
+    public function createNewReserve($parameters)
+    {
+        $system = $parameters['System'];
+        $version = $parameters['Version'];
+        $reservedNumber = $parameters['ReservedNumber'];
+        $orderId = $parameters['OrderId'];
+
+        $sql = "INSERT INTO `ReserveTypeNumber` (`System`, `Version`, `ReservedNumber`, `OrderId`) VALUES ('$system', '$version', '$reservedNumber', '$orderId')";
         if ($query = $this->pdo->prepare($sql)) {
             if ($query->execute()) {
                 $result = true;

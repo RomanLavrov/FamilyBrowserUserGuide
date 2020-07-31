@@ -91,7 +91,7 @@ $(".familyUpload").each(function () {
     $(this).change(function () {
         var fileName = this.value.substring(this.value.lastIndexOf('\\') + 1);
         console.log(fileName);
-       
+
 
         $('label[for=' + this.id + ']').text(fileName);
         $(`#btnSubmit${this.id}`).click();
@@ -106,7 +106,7 @@ $(".submitFamily").each(function () {
         var fileFamily = document.getElementById(this.dataset.file).files[0];
         var orderId = this.dataset.order;
         console.log(orderId);
-       
+
         var formData = new FormData();
         formData.append("fileFamily", fileFamily);
         formData.append("orderId", orderId);
@@ -119,11 +119,11 @@ $(".submitFamily").each(function () {
             data: formData,
             contentType: false,
             processData: false,
-            success: function (response) {              
+            success: function (response) {
                 response = JSON.parse(response);
                 console.log(response.fileName);
                 var fileName = response.fileName;
-          
+
                 $(`#downloadLink${orderId}`).removeAttr('hidden');
                 $(`#downloadLink${orderId}`).attr("href", `/readyFamilies/${fileName}`);
                 $(`#downloadLink${orderId}`).attr("download", fileName.substring(15, fileName.length));
@@ -131,4 +131,96 @@ $(".submitFamily").each(function () {
         });
     });
 });
+
+let order = 0;
+
+$(".btnReserveId").each(function () {
+    $(this).click(function () {
+        console.log(this);
+        order = this.dataset.order;
+    });
+});
+
+$("#reserveTypeNumbers").click(function () {
+    let version = $("#inputVersion").val();
+    let system = $("#inputSystem").val();
+    let typesNumber = parseInt($("#inputTypeNumber").val());
+
+    let url = `http://fb-rest-env.eu-central-1.elasticbeanstalk.com/api/FamilyTypeData/system/${system}/version/${version}/latestId`;
+    console.log(url);
+    $.get(url, function (data) {
+        let latestNumber = parseInt(data['TypeID'].substring(1));
+        console.log(latestNumber);
+
+        let localReserveUrl = "/FamilyBrowser/de/Order/GetLargestReservedNumber";
+        let paramsLocalRargest = {};
+        paramsLocalRargest['system'] = system;
+        paramsLocalRargest['version'] = version;
+
+        $.post(localReserveUrl, paramsLocalRargest, function (localResponse) {
+            let localLargest = parseInt(localResponse);
+            latestNumber = localLargest > latestNumber ? localLargest : latestNumber;
+            console.log("Latest: " + latestNumber);
+
+            for (let index = 1; index <= typesNumber; index++) {
+                data = {};
+                data['System'] = system;
+                data['Version'] = version;
+                data['ReservedNumber'] = latestNumber + index;
+                data['OrderId'] = order;
+
+                console.log(data);
+
+                let newReserveUrl = "/FamilyBrowser/de/Order/CreateNewReserve";
+                $(`#reservedNumbers${order}`).empty();
+                $.post(newReserveUrl, data, function (data) {
+                    let prefix = '';
+                    switch (system) {
+                        case 'Electrics':
+                            prefix = 'E';
+                            break;
+                        case 'Heating':
+                            prefix = 'H';
+                            break;
+                        case 'Ventilation':
+                            prefix = 'L';
+                            break;
+                        case 'AirConditioning':
+                            prefix = 'K';
+                            break;
+                        case 'Piping':
+                            prefix = 'S';
+                            break;
+
+                        default:
+                            break;
+                    }
+                    var numberDiv = document.createElement('div');
+                    var number = document.createTextNode(prefix + (latestNumber + index));
+                    numberDiv.appendChild(number);
+
+                    $(`#reservedNumbers${order}`).append(numberDiv);
+
+                    console.log(data);
+                });
+            }
+        });
+    }).fail(function () {
+        alert('System dieser Version nicht gefunden');
+    });
+});
+
+$("#btnMoreTypes").click(function () {
+    let typeNumber = parseInt($("#inputTypeNumber").val());
+    $("#inputTypeNumber").val(++typeNumber);
+});
+
+$("#btnLessTypes").click(function () {
+    let typeNumber = parseInt($("#inputTypeNumber").val());
+    if (typeNumber > 0) {
+        $("#inputTypeNumber").val(--typeNumber);
+    }
+});
+
+
 

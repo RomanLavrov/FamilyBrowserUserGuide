@@ -145,7 +145,6 @@ class Controller_Order extends Controller
 
     public function action_Submit()
     {
-        print_r($_POST);
         $order = $_POST;
 
         foreach ($_FILES  as $fileId => $file) {
@@ -291,14 +290,17 @@ class Controller_Order extends Controller
 
     function mailManager($orderId, $order)
     {
-      
+        $file2D = isset($order['file2dLink']) ? $order['file2dLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/" . $order['file2d'];
+        $file3D = isset($order['file3dLink']) ? $order['file3dLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/" . $order['file3d'];
+        $fileSpec = isset($order['fileSpecificationLink']) ? $order['fileSpecificationLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/" . $order['fileSpecification'];
+
         ini_set('SMTP', "asmtp.mail.hostpoint.ch");
         ini_set('smtp_port', "465");
         ini_set('sendmail_from', "no-reply@building360.ch");
         ini_set('password', 'nUK2E253ZJA-WG7');
 
-       // $to = 'roman.lavrov@hhm.ch, daniel.wollenmann@hhm.ch, galina.gordienko@hhm.ch, roger.horat@hhm.ch';
-        $to = 'roman.lavrov@hhm.ch';
+         $to = 'roman.lavrov@hhm.ch, daniel.wollenmann@hhm.ch, galina.gordienko@hhm.ch, roger.horat@hhm.ch';
+        //$to = 'roman.lavrov@hhm.ch';
         $subject = 'Neue Familienordnung'; //Your order was successfully added to system
 
         $message = '
@@ -349,26 +351,26 @@ class Controller_Order extends Controller
                     </thead>
                 <tbody>
                     <tr>
-                        <td>'.$order['systemSelection'].'</td>
-                        <td>'.$order['revitCategory'].'</td>
-                        <td>'.$order['description'].'</td>
+                        <td>' . $order['systemSelection'] . '</td>
+                        <td>' . $order['revitCategory'] . '</td>
+                        <td>' . $order['description'] . '</td>
                         <td>
-                            <div>Installationsart: '.$order['mount'].'</div>
-                            <div>Installationsort: '.$order['placement'].'</div>
-                            <div>Installationsmedium: '.$order['installationMedium'].'</div>
+                            <div>Installationsart: ' . $order['mount'] . '</div>
+                            <div>Installationsort: ' . $order['placement'] . '</div>
+                            <div>Installationsmedium: ' . $order['installationMedium'] . '</div>
                         </td>
                         <td>
-                            <div>Höhe: '.$order['height'].'</div>
-                            <div>Breite: '.$order['width'].'</div>
-                            <div>Tiefe: '.$order['depth'].'</div>
-                            <div>Durchmesser: '.$order['diameter'].'</div>
+                            <div>Höhe: ' . $order['height'] . '</div>
+                            <div>Breite: ' . $order['width'] . '</div>
+                            <div>Tiefe: ' . $order['depth'] . '</div>
+                            <div>Durchmesser: ' . $order['diameter'] . '</div>
                         </td>
                         <td>
-                            <div><a href="'.$order['file2d'].'">2D Symbol</a></div>
-                            <div><a href="'.$order['file3d'].'">3D Symbol</a></div>
-                            <div><a href="'.$order['fileSpecification'].'">Spezifikation</a></div>
+                            <div><a href="' . $file2D . '">2D Symbol</a></div>
+                            <div><a href="' . $file3D . '">3D Symbol</a></div>
+                            <div><a href="' . $fileSpec . '">Spezifikation</a></div>
                         </td>
-                        <td>'.date('d-m-Y').'</td>
+                        <td>' . date('d-m-Y') . '</td>
                     </tr>
                 </tbody>
             </table>
@@ -389,7 +391,8 @@ class Controller_Order extends Controller
             'Content-type' => 'text/html',
             'X-Mailer' => 'PHP/' . phpversion()
         );
-      
+
+
         mail($to, $subject, $message, $headers);
     }
 
@@ -410,5 +413,15 @@ class Controller_Order extends Controller
         } else {
             echo ('File not uploaded');
         }
+    }
+
+    function action_GetLargestReservedNumber(){
+        $this->model = new Order_Model;
+        echo(json_encode($this->model->getLargestReservedNumber($_POST['system'], $_POST['version'])));
+    }
+
+    function action_CreateNewReserve(){
+        $this->model = new Order_Model;       
+        $this->model->createNewReserve($_POST);
     }
 }
