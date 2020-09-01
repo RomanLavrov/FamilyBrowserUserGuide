@@ -1,6 +1,11 @@
 ﻿let file2d;
 let file3d;
 let fileSpecification;
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+    console.log(  $('[data-toggle="tooltip"]'));
+  })
 /*
 let submitButton = document.getElementById("submitFamilyOrder");
 submitButton.onclick = function () {
@@ -128,7 +133,7 @@ $("#file3DswapInput").click(function(){
 });
 //-----------------------------
 
-//-------Swap 3D File input
+//-------Swap Specification File input
 $("#fileSpecLinkInput").hide();
 
 $("#fileSpecSwapInput").click(function(){   
@@ -145,3 +150,11 @@ $("#fileSpecSwapInput").click(function(){
 });
 //-----------------------------
 
+//-----Tooltips-----
+let tooltipMarkup = "<div><img src='/FamilyBrowser/images/dimensions.png'  width='150' height='150'/></div>";
+
+$("#height-field").attr("title", tooltipMarkup);
+
+$("#width-field").attr("title", tooltipMarkup);
+
+$("#depth-field").attr("title", tooltipMarkup);

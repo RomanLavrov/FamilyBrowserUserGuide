@@ -70,8 +70,8 @@ class Order_Model extends Model
     {
         $orders = [];
         $sql = "SELECT idOrders, Mail, Orders.Company, System, RevitCategory, Description, Mount, Placement,
-        InstallationMedium, Diameter, Height, Depth, Width, eBKP, BKP, OmniClass, IFCExportAs, File2d, File3d, FileSpecification, CreatedAt, idOrderStatus as StatusID, OrderStatus.Name as StatusEN, NameDE as StatusDE
-        FROM hhmeweme_orderFamilies.Orders 
+        InstallationMedium, Diameter, Height, Depth, Width, eBKP, BKP, OmniClass, IFCExportAs, File2d, File3d, FileSpecification, CreatedAt, idOrderStatus as StatusID, OrderStatus.Name as StatusEN, NameDE as StatusDE, Comment, OtherInfo
+        FROM Orders 
        left join OrderStatus on Orders.StatusId = OrderStatus.idOrderStatus 
        Left join Users on Orders.UserId = Users.idUsers;";
         if ($query = $this->pdo->prepare($sql)) {
@@ -108,23 +108,29 @@ class Order_Model extends Model
         $IFCexportAs = $order['ifcExportAs'];
         $IFCexportType = $order['ifcExportType'];
 
-        $file2D = isset($order['file2d'])? $order['file2d'] : 'logo.png';
-        $file3D = isset($order['file3d'])? $order['file3d'] : 'logo.png';
-        $fileSpec = isset( $order['fileSpecification'])?  $order['fileSpecification'] : 'logo.png';
+        $file2D = isset($order['file2d']) ? $order['file2d'] : 'logo.png';
+        $file3D = isset($order['file3d']) ? $order['file3d'] : 'logo.png';
+        $fileSpec = isset($order['fileSpecification']) ?  $order['fileSpecification'] : 'logo.png';
 
-        $File2d = $order['file2dLink']!='' ? $order['file2dLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/" . $file2D;
-        $File3d = $order['file3dLink']!='' ? $order['file3dLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/" . $file3D;
-        $FileSpecification = $order['fileSpecificationLink']!='' ? $order['fileSpecificationLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/" . $fileSpec;
+        $File2d = $order['file2dLink'] != '' ? $order['file2dLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/" . $file2D;
+        $File3d = $order['file3dLink'] != '' ? $order['file3dLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/" . $file3D;
+        $FileSpecification = $order['fileSpecificationLink'] != '' ? $order['fileSpecificationLink'] : "https://help.building360.ch/FamilyBrowser/application/orderFilesUploads/" . $fileSpec;
         $CreatedAt = date('Y-m-d H:i:s');
+        $Comment = $order['comment'];
+        $OtherInfo = $order['otherInfo'];
 
         $sql = "INSERT INTO `Orders`
          (`Name`, `Mail`, `Company`, `Project`, `System`, `RevitCategory`, `Description`, 
          `Mount`, `Placement`, `InstallationMedium`, `Diameter`, `Height`, 
          `Depth`, `Width`, `eBKP`, `BKP`, `OmniClass`, `IFCexportAs`, 
-         `IFCexportType`, `File2d`, `File3d`, `FileSpecification`, `CreatedAt`) 
+         `IFCexportType`, `File2d`, `File3d`, `FileSpecification`, `CreatedAt`, `Comment`, `OtherInfo`) 
          
-         VALUES ('$Name', '$Mail', '$Company', '$Project', '$System', '$RevitCategory', '$Description', '$Mount', '$Placement', '$InstallationMedium', 
-         '$Diameter', '$Height', '$Depth', '$Width', '$eBKP', '$BKP', '$OmniClass', '$IFCexportAs', '$IFCexportType', '$File2d', '$File3d', '$FileSpecification', '$CreatedAt')";
+         VALUES ('$Name', '$Mail', '$Company', '$Project', '$System', 
+         '$RevitCategory', '$Description', '$Mount', '$Placement', '$InstallationMedium', 
+         '$Diameter', '$Height', '$Depth', '$Width', '$eBKP', '$BKP', 
+         '$OmniClass', '$IFCexportAs', '$IFCexportType', '$File2d', 
+         '$File3d', '$FileSpecification', '$CreatedAt', '$Comment', '$OtherInfo')";
+
         if ($query = $this->pdo->prepare($sql)) {
             if ($query->execute()) {
                 return $this->pdo->lastInsertId();

@@ -219,11 +219,11 @@
                 </div>
 
                 <!--div class="input-group mb-3 w-75">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Installationsart</span>
-                </div>
-                <input type="text" id="order-mount" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-mount" name="mount">
-            </div-->
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Installationsart</span>
+                    </div>
+                    <input type="text" id="order-mount" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-mount" name="mount">
+                </div-->
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -238,11 +238,11 @@
                 </div>
 
                 <!--div class="input-group mb-3 w-75">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Installationsort</span>
-                </div>
-                <input type="text" id="order-placement" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-placement" name="placement">
-            </div-->
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Installationsort</span>
+                    </div>
+                    <input type="text" id="order-placement" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-placement" name="placement">
+                </div-->
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -260,11 +260,11 @@
                 </div>
 
                 <!--div class="input-group mb-3 w-75">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">Installationsmedium</span>
-                </div>
-                <input type="text" id="order-installationMedium" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-installationMedium" name="installationMedium">
-            </div-->
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Installationsmedium</span>
+                    </div>
+                    <input type="text" id="order-installationMedium" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-installationMedium" name="installationMedium">
+                </div-->
 
 
                 <div class="input-group mb-3">
@@ -274,21 +274,21 @@
                     <input type="text" id="order-diameter" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-diameter" name="diameter">
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" id="height-field" data-toggle="tooltip" data-placement="right" data-html="true">
                     <div class="input-group-prepend">
-                        <span class="input-group-text">Höhe</span>
+                        <span class="input-group-text">Höhe</span>                       
                     </div>
                     <input type="text" id="order-height" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-height" name="height">
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" id="width-field" data-toggle="tooltip" data-placement="right" data-html="true">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Breite</span>
                     </div>
                     <input type="text" id="order-width" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-width" name="width">
                 </div>
 
-                <div class="input-group mb-3">
+                <div class="input-group mb-3" id="depth-field" data-toggle="tooltip" data-placement="right" data-html="true">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Tiefe</span>
                     </div>
@@ -432,6 +432,21 @@
                     </div>
                     <input type="text" id="order-ifcExportType" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-ifcExportType" name="ifcExportType">
                 </div>
+
+            </div>
+
+            <div class="input-group mb-3 w-75">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Kommentar/Nachricht</span>
+                </div>
+                <input type="text" id="order-comment" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-comment" name="comment">
+            </div>
+
+            <div class="input-group mb-3 w-75">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Andere</span>
+                </div>
+                <input type="text" id="order-otherInfo" class="form-control" placeholder="Ihre Antwort eingeben" aria-label="name" aria-describedby="order-otherInfo" name="otherInfo">
             </div>
         </div>
 

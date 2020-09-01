@@ -30,10 +30,6 @@
                 <td style="text-align:center"><?php print htmlentities($order['idOrders']) ?></td>
                 <td>
                     <div class="d-flex flex-row">
-                        <div class="p-2 w-25">Datum:</div>
-                        <div class="p-2 w-75"><?php print htmlentities($order['CreatedAt']) ?></div>
-                    </div>
-                    <div class="d-flex flex-row">
                         <div class="p-2 w-25">Name:</div>
                         <div class="p-2 w-75"><?php print htmlentities($order['UserName']) ?></div>
                     </div>
@@ -41,6 +37,23 @@
                         <div class="p-2 w-25">E-mail:</div>
                         <div class="p-2 w-75"><?php print htmlentities($order['Mail']) ?></div>
                     </div>
+                    <div class="d-flex flex-row">
+                        <div class="p-2 w-25">Datum:</div>
+                        <div class="p-2 w-75"><?php print htmlentities($order['CreatedAt']) ?></div>
+                    </div>
+
+                    <hr/>
+                    <div class="d-flex flex-row">
+                        <div class="px-2 py-0">Kommentar/Nachricht:</div>                     
+                    </div>
+                    <div class="p-2 text-break"><?php print htmlentities($order['Comment']) ?></div>
+
+                    <hr/>
+                    <div class="d-flex flex-row">
+                        <div class="px-2 py-0">Andere:</div>                     
+                    </div>
+                    <div class="p-2 text-break"><?php print htmlentities($order['OtherInfo']) ?></div>
+
                 </td>
 
                 <td>
@@ -102,13 +115,21 @@
                     <div class="d-flex flex-row">
                         <div class="p-2 w-50 align-self-center">2D Symbol:</div>
                         <div class="p-2 w-50 align-self-center">
-                            <img class="img-thumbnail rounded file-preview" src="<?php print htmlentities($order['File2d']) ?>" alt="No Image" data-link="<?php print htmlentities($order['File2d']) ?>">
+                            <img class="img-thumbnail rounded file-preview" src="<?php if (strpos($order['File2d'], '.pdf') > 0) {
+                                                                                        print htmlentities('/FamilyBrowser/application/orderFilesUploads/logo-pdf.png');
+                                                                                    } else {
+                                                                                        print htmlentities($order['FileSpecification']);
+                                                                                    } ?>" alt="No Image" data-link="<?php print htmlentities($order['File2d']) ?>">
                         </div>
                     </div>
                     <div class="d-flex flex-row">
                         <div class="p-2 w-50 align-self-center">3D Symbol:</div>
                         <div class="p-2 w-50 align-self-center">
-                            <img class="img-thumbnail rounded file-preview" src="<?php print htmlentities($order['File3d']) ?>" alt="No Image" data-link="<?php print htmlentities($order['File3d']) ?>">
+                            <img class="img-thumbnail rounded file-preview" src="<?php if (strpos($order['File3d'], '.pdf') > 0) {
+                                                                                        print htmlentities('/FamilyBrowser/application/orderFilesUploads/logo-pdf.png');
+                                                                                    } else {
+                                                                                        print htmlentities($order['FileSpecification']);
+                                                                                    } ?>" alt="No Image" data-link="<?php print htmlentities($order['File3d']) ?>">
                         </div>
                     </div>
                     <div class="d-flex flex-row">

@@ -146,7 +146,7 @@ $("#reserveTypeNumbers").click(function () {
     let system = $("#inputSystem").val();
     let typesNumber = parseInt($("#inputTypeNumber").val());
 
-    let url = `http://fb-rest-env.eu-central-1.elasticbeanstalk.com/api/FamilyTypeData/system/${system}/version/${version}/latestId`;
+    let url = `https://api.webcatalog.building360.ch/api/FamilyTypeData/system/${system}/version/${version}/latestId`;
     console.log(url);
     $.get(url, function (data) {
         let latestNumber = parseInt(data['TypeID'].substring(1));
