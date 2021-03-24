@@ -79,13 +79,23 @@ body {
 
 }
 
-.article-header {
+.article-header, .article-header-small {
     font-size: 16pt;
     font-weight: 600;
     padding-left: 80px;
     padding-top: 20px;
     padding-bottom: 20px;
     display: inline-block;
+}
+
+.article-header-small{
+    font-size: 14pt;
+}
+
+.article-header-micro{
+    padding-left: 80px;
+    font-weight: 600;
+    font-size: 12pt;   
 }
 
 .article-content {
@@ -336,6 +346,12 @@ ol.faq-bold-list>li:before {
 .search-imgs {
     max-width: 600px;
     max-height: 300px;
+    margin: 0.2em 0 0.2em 0;
+}
+
+.search-imgs-large{
+    max-width: 1200px;
+    max-height: 800px;
     margin: 0.2em 0 0.2em 0;
 }
 .search-imgs:hover {

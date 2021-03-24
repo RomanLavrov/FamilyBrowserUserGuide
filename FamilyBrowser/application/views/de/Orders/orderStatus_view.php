@@ -105,7 +105,7 @@
                 <td style="text-align:center">
                     <span><?php print htmlentities($order['NameDE']) ?></span>
                     <?php if (isset($order['FamilyFile'])) : ?>
-                        <a class="btn btn-success w-100 mt-2" id="<?php print htmlentities("downloadLink" . $order['idOrders']) ?>" href="<?php print htmlentities('/readyFamilies/' . $order['FamilyFile']) ?>" download="<?php print htmlentities(substr($order['FamilyFile'], 15, strlen($order['FamilyFile']))) ?>">Herunterladen</a>
+                        <a class="btn btn-success w-100 mt-2" id="<?php print htmlentities("downloadLink" . $order['idOrders']) ?>" href="<?php print htmlentities('/FamilyBrowser/application/readyFamilies/' . $order['FamilyFile']) ?>" download="<?php print htmlentities(substr($order['FamilyFile'], 15, strlen($order['FamilyFile']))) ?>">Herunterladen</a>
 
                     <?php endif ?>
                 </td>

@@ -90,7 +90,8 @@
             <div class="panel">
                 <a class="nav-button" target="_self" data-name="Interface" href="/FamilyBrowser/de/Interface">Interface</a>
                 <a class="nav-button" target="_self" data-name="Basic_functions" href="/FamilyBrowser/de/Basic_functions">Familien einfügen</a>
-                <a class="nav-button" target="_self" data-name="Tools" href="/FamilyBrowser/de/Tools">Toolbox</a>
+                <a class="nav-button" target="_self" data-name="Architecture" href="/FamilyBrowser/de/Architecture">Architekturkatalog</a>
+                <a class="nav-button" target="_self" data-name="Tools" href="/FamilyBrowser/de/Tools">Tools</a>
             </div>
 
             <?php if (isset($_SESSION['user'])) : ?>

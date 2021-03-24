@@ -7,7 +7,8 @@
 </div>
 
 <div class="article-header">
-      <img style="box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.55);" src="/FamilyBrowser/images/LocationPointButton_de.png" alt="LocationPoint" /></div>
+      <img style="box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.55);" src="/FamilyBrowser/images/LocationPointButton_de.png" alt="LocationPoint" />
+</div>
 <div class="article-content">
       <iframe class="embeded-video" src="https://www.youtube.com/embed/M_5dVhfTwzQ" allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"> </iframe>
 
@@ -30,7 +31,7 @@
       <div style="box-shadow: 0px 0px 12px 1px rgba(0,0,0,0.55); padding: 0.3em">
             <img src="/FamilyBrowser/images/Search-icon.png" alt="Durchsuchen" /> Durchsuchen
       </div>
-      
+
 </div>
 <div class="article-content">
       <p>Dieses Tool dient als globale Suche durch alle verfügbaren Artikel in Elektro- oder HLKS-Katalogen. Die Suche wird innerhalb der gewählten Version ausgeführt, die Sie in den <a href="/FamilyBrowser/de/Settings">Einstellungen</a> ändern können.</p>
@@ -54,18 +55,93 @@
       </div>
 </div>
 
-<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-xl">
-    <div class="modal-content">
-      <div class="modal-body">
-      	<button type="button" class="close" data-dismiss="modal">
-                  <span aria-hidden="true">&times;</span>
-                  <span class="sr-only">Close</span>
-            </button>
-        <img src="" class="imagepreview" style="width:100%">
+<div class="article-header">Elektro Schalterkonfigurator</div>
+<div class="article-content">
+      <p>
+            Ab Version 2021.1 ist der Elektro Schalterkonfigurator im FamilyBrowser (Tab Elektro) verfügbar. Er ermöglicht die einfache Zusammenstellung von Schalterkombinationen mittels Drag & Drop mit automatischer Platzierung relativ zur ausgewählten Tür dank Konfigurationsmöglichkeiten für Türbandung, Abstand zur Tür und Abstand von der Geschossebene.
+      </p>
+</div>
+
+<div class="article-header-small">Aufbau</div>
+<div class="article-content">
+      <p>
+            Der Elektro Schalterkonfigurator ist folgendermassen aufgebaut:
+      </p>
+      <div class="d-flex justify-content-center modal-img-container">
+            <img class="search-imgs" src="/FamilyBrowser/images/combinator_structure_de.png" alt="">
       </div>
-    </div>
-  </div>
+      <p>
+            In folgendem Video wird die Anwendung beispielhaft gezeigt:
+      </p>
+      <iframe class="embeded-video" src="https://youtu.be/xV73T2km7jA?t=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<div class="article-header-small">Funktionen</div>
+<div class="article-header-micro">Bauteilauswahl und Filterung</div>
+<div class="article-content">
+      <p>
+            Im rechten Bereich des Schalterkonfigurators sind alle Bauteile aufgelistet, die in der Kombination verwendet werden können. Beim Klick auf ein Kategoriesymbol wird die Auswahl gefiltert, sodass nur noch Objekte der ausgewählten Kategorie angezeigt werden. </p>
+</div>
+
+<div class="article-header-micro">Kombination zusammenstellen</div>
+<div class="article-content">
+      <p>
+            Bauteile werden mittels Drag- & Drop ins gewünschte Schalterfeld gezogen. Beim Rechtsklick auf ein platziertes Bauteil öffnet sich ein Kontextmenü mit der Option «Löschen»; dadurch wird das Objekt aus der Kombination entfernt.
+      </p>
+</div>
+
+<div class="article-header-micro">Türbandung & -abstand festlegen</div>
+<div class="article-content">
+      <p>
+            Die Türbandung kann mit den Buttons oben entweder auf «links» oder «rechts» festgelegt werden.
+            Das Eingabefeld auf der linken oberen Seite ermöglicht das Festlegen eines Abstands in mm zwischen der Tür und der Kombination. Beim Einfügen wird die Kombination automatisch passend zur Tür platziert. Für eine freie Platzierung im Plan kann 0 als Abstand eingetragen werden.
+      </p>
+</div>
+
+<div class="article-header-micro">Abstände zur Ebene definieren</div>
+<div class="article-content">
+      <p>
+            Die Eingabefelder auf der linken Seite definieren jeweils den Abstand in mm der entsprechenden Kombination von der Geschossebene aus. Die gelbe Linie des Eingabefelds zielt jeweils auf den Mittelpunkt der Kombination (bei Kombinationen mit Höhe 1) bzw. den Mittelpunkt der obersten Linie der Kombination (bei Kombinationen mit Höhen grösser als 1), von wo aus der Abstand gemessen wird.
+      </p>
+</div>
+
+<div class="article-header-micro">Kombinationsgrösse verändern</div>
+<div class="article-content">
+      <p>
+            Mit den Plus- und Minusbuttons neben den Kombinationen kann die Grösse (Höhe und Breite) der Kombination festgelegt werden.
+      </p>
+</div>
+
+<div class="article-header-micro">Kombinationen verwalten</div>
+<div class="article-content">
+      <p>Einmal erstellte Kombinationen können mit dem Schalterkonfigurator gespeichert werden.</p>
+      <p>Beim Klick auf das Ordner-Symbol kann der Speicherort festgelegt werden. Dies kann auch ein Netzwerklaufwerk sein. Um gespeicherte Kombinationen von anderen Nutzern zu verwenden, können die Dateien einfach im als Speicherort definierten Ordner abgelegt werden.</p>
+      <p>Mit einem Klick auf das Disketten-Symbol können Kombinationen unter einer bestimmten Bezeichnung gespeichert werden.</p>
+      <p>Alle gespeicherten Kombinationen sind im Dropdown links neben dem Disketten-Symbol aufgelistet. Beim Klick auf die gewünschte Kombination wird sie in die aktuelle Auswahl übernommen. </p>
+      <p>Um eine Kombination zu bereinigen, kann unten das Wischmopp-Symbol betätigt werden.</p>
+      <p>Mit dem Mülleimer-Symbol kann eine gespeicherte Kombination gelöscht werden. Achtung: Die Kombination wird sofort gelöscht, es gibt keine Sicherheitsfrage.</p>
+</div>
+
+<div class="article-header-micro">Interaktionsmöglichkeiten</div>
+<div class="article-content">
+      <p>
+            Zum Einfügen der Kombination in den Plan kann rechts unten der «Einfügen»-Button geklickt werden. Mit einem Klick auf den Türrahmen der gewünschten Tür wird die Kombination automatisch mit den zuvor definierten Abständen zu Ebene und Tür sowie auf der richtigen Seite der Tür eingefügt. </p>
+      <p>
+            Mit einem Klick auf den «Schliessen»-Button kann das Fenster ohne Platzierung einer Schalterkombination verlassen werden. Beim nächsten Öffnen des Konfigurators wird jeweils die zuletzt verwendete Kombination übernommen. </p>
+</div>
+
+<div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                  <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal">
+                              <span aria-hidden="true">&times;</span>
+                              <span class="sr-only">Close</span>
+                        </button>
+                        <img src="" class="imagepreview" style="width:100%">
+                  </div>
+            </div>
+      </div>
 </div>
 <!--
 <div class="article-header">

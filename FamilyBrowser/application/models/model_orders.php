@@ -69,7 +69,7 @@ class Order_Model extends Model
     public function getOrdersForExcel()
     {
         $orders = [];
-        $sql = "SELECT idOrders, Mail, Orders.Company, System, RevitCategory, Description, Mount, Placement,
+        $sql = "SELECT idOrders, Mail, Project, Orders.Company, System, RevitCategory, Description, Mount, Placement,
         InstallationMedium, Diameter, Height, Depth, Width, eBKP, BKP, OmniClass, IFCExportAs, File2d, File3d, FileSpecification, CreatedAt, idOrderStatus as StatusID, OrderStatus.Name as StatusEN, NameDE as StatusDE, Comment, OtherInfo
         FROM Orders 
        left join OrderStatus on Orders.StatusId = OrderStatus.idOrderStatus 

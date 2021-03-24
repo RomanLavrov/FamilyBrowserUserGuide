@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 class Auth_Model extends Model
 {
@@ -49,12 +49,13 @@ class Auth_Model extends Model
     }
 
     public function checkToken($token){
-        $sql="SELECT * FROM `PasswordReset`";
+        $sql="SELECT * FROM `PasswordReset` where Token = '$token'";       
+      
         $query = $this->pdo->prepare($sql);
         if ($query->execute()) {
             if($query->rowCount() == 1){
 
-                $sql="DELETE FROM `PasswordReset` WHERE `Token` = '$token'";
+                $sql="DELETE FROM `PasswordReset` WHERE Token = '$token' ";
                
                 $query = $this->pdo->prepare($sql);
                 $query->execute();

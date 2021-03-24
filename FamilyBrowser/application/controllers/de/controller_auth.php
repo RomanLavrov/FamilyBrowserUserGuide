@@ -1,5 +1,11 @@
-﻿<?php
+<?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 require_once("./application/models/model_auth.php");
+require_once("../vendor/autoload.php");
+
 class Controller_Auth extends Controller
 {
     public function action_index()
@@ -13,11 +19,11 @@ class Controller_Auth extends Controller
         if (isset($_POST) && count($_POST) > 0) {
             $this->model = new Auth_Model;
             $user = $this->model->getUser($_POST['login'], $_POST['password']);
-          
+
             if (isset($user)) {
                 session_start();
                 $_SESSION['role'] = $user['RoleName'];
-                $_SESSION['user'] = $user['FirstName'].' '.$user['LastName'];
+                $_SESSION['user'] = $user['FirstName'] . ' ' . $user['LastName'];
                 $_SESSION['userData'] = $user;
                 header('location: /FamilyBrowser/de/');
             } else {
@@ -71,15 +77,14 @@ class Controller_Auth extends Controller
         if (isset($_POST) && count($_POST)) {
             $token = bin2hex(random_bytes(50));
             $this->model->resetPassword($_POST['mail'], $token);
-            $this->mailToken($_POST['mail'], $token);
+            $this->mailToken($_POST['mail'], $token);           
             header('location: /FamilyBrowser/de/Auth/Login');
         }
 
         if (isset($userToken)) {
-
-            $isValid = $this->model->checkToken($userToken);
-
-            if ($isValid) {
+         
+            $isValid = $this->model->checkToken($userToken);          
+            if ($isValid) {               
                 header('location: /FamilyBrowser/de/Auth/UpdatePassword');
             }
         }
@@ -111,11 +116,11 @@ class Controller_Auth extends Controller
 
     private function mailToken($mailAdress, $token)
     {
+
         ini_set('SMTP', "asmtp.mail.hostpoint.ch");
         ini_set('smtp_port', "465");
         ini_set('sendmail_from', "no-reply@building360.ch");
         ini_set('password', 'nUK2E253ZJA-WG7');
-
         $to = $mailAdress; // 'johny@example.com, sally@example.com'; 
         $subject = 'Reset password'; //Your order was successfully added to system
 
@@ -153,6 +158,24 @@ class Controller_Auth extends Controller
         
         </html>';
 
+        /*
+        $mail = new PHPMailer(TRUE);
+        $mail->setFrom('no-reply@building360.ch', 'Famillies Order Service');
+        $mail->Subject = $subject;
+        $mail->Body = $message;
+        $mail->addAddress($mailAdress);
+
+        //-----Mailtrap
+        $mail->isSMTP();
+        $mail->Host = 'smtp.mailtrap.io';
+        $mail->SMTPAuth = TRUE;
+        $mail->SMTPSecure = 'tls';
+        $mail->Username = '3744b08cb75d9b';
+        $mail->Password = 'a8b8047ea6dab7';
+        $mail->Port = 587;
+        $mail->send();*/
+
+
         $headers = array(
             'From' => 'no-reply@building360.ch',
             'Reply-To' => 'admin@building360.ch',
@@ -163,4 +186,3 @@ class Controller_Auth extends Controller
         mail($to, $subject, $message, $headers);
     }
 }
-?>;

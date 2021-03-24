@@ -1,4 +1,4 @@
-﻿<div class="auth-card align-self-center">
+<div class="auth-card align-self-center">
     <div class="auth-card-header d-flex flex-row justify-content-center align-items-center">
         <div class="p-2">
             <img src="/FamilyBrowser/images/logo.png" alt="" style="height:60px">
