@@ -42,9 +42,9 @@ $("#btnExcelExport").click(function () {
         data.forEach(element => {
             if (element['StatusID'] != 5) {
                 var dataRow = Object.values(element);
-                dataRow[17] = (dataRow[17].includes("logo") || dataRow[17] == "") ? "No File" : { v: "", f: `HYPERLINK("${dataRow[17]}")`, t: 's' };
                 dataRow[18] = (dataRow[18].includes("logo") || dataRow[18] == "") ? "No File" : { v: "", f: `HYPERLINK("${dataRow[18]}")`, t: 's' };
                 dataRow[19] = (dataRow[19].includes("logo") || dataRow[19] == "") ? "No File" : { v: "", f: `HYPERLINK("${dataRow[19]}")`, t: 's' };
+                dataRow[20] = (dataRow[20].includes("logo") || dataRow[20] == "") ? "No File" : { v: "", f: `HYPERLINK("${dataRow[20]}")`, t: 's' };
                 dataArray.push(dataRow);
             }
         });

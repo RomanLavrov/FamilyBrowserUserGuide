@@ -233,10 +233,12 @@ class Controller_Order extends Controller
 
     function mailOrder($mailAdress, $orderId)
     {
+
         ini_set('SMTP', "asmtp.mail.hostpoint.ch");
         ini_set('smtp_port', "465");
         ini_set('sendmail_from', "no-reply@building360.ch");
         ini_set('password', 'nUK2E253ZJA-WG7');
+
 
         $to = $mailAdress; // 'johny@example.com, sally@example.com'; 
         $subject = 'Familie bestellen BUILDing360'; //Your order was successfully added to system
