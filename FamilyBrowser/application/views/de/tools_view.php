@@ -73,8 +73,7 @@
       <p>
             In folgendem Video wird die Anwendung beispielhaft gezeigt:
       </p>
-      <iframe class="embeded-video" src="https://youtu.be/xV73T2km7jA?t=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+      <iframe class="embeded-video" src="https://www.youtube.com/embed/xV73T2km7jA?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 
 <div class="article-header-small">Funktionen</div>
 <div class="article-header-micro">Bauteilauswahl und Filterung</div>

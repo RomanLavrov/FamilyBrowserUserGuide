@@ -33,7 +33,7 @@
     <p>
         Exemplary usage of the architecture browser
     </p>
-    <iframe class="embeded-video" src="https://youtu.be/xHfx_kyU5H8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe class="embeded-video" src="https://www.youtube.com/embed/xHfx_kyU5H8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     <br />
     <p>
