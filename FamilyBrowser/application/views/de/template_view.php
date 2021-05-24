@@ -74,7 +74,7 @@
             <button class="accordion">Loslegen</button>
             <div class='panel'>
                 <a class="nav-button" target="_self" data-name="Overview" href="/FamilyBrowser/de/Overview">Überblick</a>
-
+                <a class="nav-button" target="_self" data-name="Account_Management" href="/FamilyBrowser/de/Account_Management">Registrierung / Login </a>
                 <a class="nav-button" target="_self" data-name="Settings" href="/FamilyBrowser/de/Settings">Einstellungen</a>
                 <a class="nav-button" target="_self" data-name="FAQ" href="/FamilyBrowser/de/FAQ">FAQ</a>
             </div>
