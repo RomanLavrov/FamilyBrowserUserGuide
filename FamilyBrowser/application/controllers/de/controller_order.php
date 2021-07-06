@@ -1,5 +1,10 @@
 <?php
 require_once("./application/models/model_orders.php");
+//require_once("../vendor/autoload.php");
+
+//use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\Exception;
+
 
 class Controller_Order extends Controller
 {
@@ -233,12 +238,10 @@ class Controller_Order extends Controller
 
     function mailOrder($mailAdress, $orderId)
     {
-
         ini_set('SMTP', "asmtp.mail.hostpoint.ch");
         ini_set('smtp_port', "465");
         ini_set('sendmail_from', "no-reply@building360.ch");
         ini_set('password', 'nUK2E253ZJA-WG7');
-
 
         $to = $mailAdress; // 'johny@example.com, sally@example.com'; 
         $subject = 'Familie bestellen BUILDing360'; //Your order was successfully added to system
@@ -301,8 +304,7 @@ class Controller_Order extends Controller
         ini_set('sendmail_from', "no-reply@building360.ch");
         ini_set('password', 'nUK2E253ZJA-WG7');
 
-         $to = 'roman.lavrov@hhm.ch, daniel.wollenmann@hhm.ch, galina.gordienko@hhm.ch, roger.horat@hhm.ch';
-        //$to = 'roman.lavrov@hhm.ch';
+        $to = 'roman.lavrov@hhm.ch, daniel.wollenmann@hhm.ch, galina.gordienko@hhm.ch, roger.horat@hhm.ch';
         $subject = 'Neue Familienordnung'; //Your order was successfully added to system
 
         $message = '
@@ -391,9 +393,9 @@ class Controller_Order extends Controller
             'From' => 'no-reply@building360.ch',
             'Reply-To' => 'admin@building360.ch',
             'Content-type' => 'text/html',
-            'X-Mailer' => 'PHP/' . phpversion()
+            'X-Mailer' => 'PHP/' . phpversion(),
+            'List-Unsubscribe' => '<mailto:admin@building360.ch.com?subject=unsubscribe>'
         );
-
 
         mail($to, $subject, $message, $headers);
     }
@@ -417,13 +419,15 @@ class Controller_Order extends Controller
         }
     }
 
-    function action_GetLargestReservedNumber(){
+    function action_GetLargestReservedNumber()
+    {
         $this->model = new Order_Model;
-        echo(json_encode($this->model->getLargestReservedNumber($_POST['system'], $_POST['version'])));
+        echo (json_encode($this->model->getLargestReservedNumber($_POST['system'], $_POST['version'])));
     }
 
-    function action_CreateNewReserve(){
-        $this->model = new Order_Model;       
+    function action_CreateNewReserve()
+    {
+        $this->model = new Order_Model;
         $this->model->createNewReserve($_POST);
     }
 }

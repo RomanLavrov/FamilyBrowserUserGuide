@@ -38,7 +38,7 @@
     Login und Logout im FamilyBrowser
 </div>
 <br />
-<div class="article-header">
+<div class="article-header-small">
     Login
 </div>
 <div class="article-content">
@@ -52,7 +52,7 @@
     </p>
 </div>
 
-<div class="article-header">
+<div class="article-header-small">
     Passwort vergessen
 </div>
 <div class="article-content">
@@ -60,7 +60,7 @@
     <a href="https://account.building360.ch/password/reset">BUILDing360 Passwort zurücksetzen Seite</a>.
 </div>
 
-<div class="article-header">
+<div class="article-header-small">
     Logout
 </div>
 <div class="article-content">
@@ -86,7 +86,7 @@
     </div>
 </div>
 
-<div class="article-header">
+<div class="article-header-small">
     Persönliche Daten bearbeiten
 </div>
 <div class="article-content">
@@ -95,7 +95,7 @@
     </p>
 </div>
 
-<div class="article-header">
+<div class="article-header-small">
     Newslettereinstellungen verwalten
 </div>
 <div class="article-content">
@@ -104,7 +104,7 @@
     </p>
 </div>
 
-<div class="article-header">
+<div class="article-header-small">
     Konto löschen
 </div>
 <div class="article-content">
@@ -118,7 +118,6 @@
     </p>
     </br>
 </div>
-
 
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl" style="max-width:60%">
