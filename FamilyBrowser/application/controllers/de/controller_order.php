@@ -159,13 +159,14 @@ class Controller_Order extends Controller
             }
         }
 
-        $this->model = new Order_Model;
-
-        $orderId = $this->model->createOrder($order);
-        $this->mailOrder($_POST['mail'], $orderId);
-        $this->mailManager($orderId, $order);
-        $this->view->orders = $this->model->getOrders();
-        $this->view->generate('Orders/orderStatus_view.php', 'de/template_view.php');
+        //$this->model = new Order_Model;
+        //$orderId = $this->model->createOrder($order);
+        if (isset($orderId)) {
+            $this->mailOrder($_POST['mail'], $orderId);
+            $this->mailManager($orderId, $order);
+            $this->view->orders = $this->model->getOrders();
+            $this->view->generate('Orders/orderStatus_view.php', 'de/template_view.php');
+        }
     }
 
     public function action_Status()
@@ -396,6 +397,7 @@ class Controller_Order extends Controller
             'X-Mailer' => 'PHP/' . phpversion(),
             'List-Unsubscribe' => '<mailto:admin@building360.ch.com?subject=unsubscribe>'
         );
+
 
         mail($to, $subject, $message, $headers);
     }

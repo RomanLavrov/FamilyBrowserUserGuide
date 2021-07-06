@@ -88,6 +88,7 @@ class Order_Model extends Model
 
     public function createOrder($order)
     {
+        if (!isset($order['mail']) || $order['mail'] = "") return;
         $Name = $order['name'];
         $Mail = $order['mail'];
         $Company = $order['company'];
