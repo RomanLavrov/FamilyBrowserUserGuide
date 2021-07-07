@@ -93,32 +93,33 @@ class Controller_Order extends Controller
         "Wires"
     ];
 
-    private $installationMedium = [ 
-        '400V', 
-        'PVA', 
-        'Telefon', 
-        'Spitalruf-Anlage', 
-        'Sicherheit', 
-        'Res', 
-        'RWA', 
-        'UKV', 
-        'ZUKO', 
-        'Radio/TV', 
-        'Uhr', 
-        'Allgemein', 
-        'GSA', 
-        'GRA', 
+    private $installationMedium = [
+        '400V',
+        'PVA',
+        'Telefon',
+        'Spitalruf-Anlage',
+        'Sicherheit',
+        'Res',
+        'RWA',
+        'UKV',
+        'ZUKO',
+        'Radio/TV',
+        'Uhr',
+        'Allgemein',
+        'GSA',
+        'GRA',
         'GAS',
-        'Gebäudeautomation', 
-        'Audio/Video', 
-        'Brandschutz', 
-        'EDV', 
-        'NOT', 
-        'HLKS', 
-        '230V'];
+        'Gebäudeautomation',
+        'Audio/Video',
+        'Brandschutz',
+        'EDV',
+        'NOT',
+        'HLKS',
+        '230V'
+    ];
 
     public function action_index()
-    {             
+    {
         $this->view->revitCategories = $this->categories;
         $this->view->installationMedium = $this->installationMedium;
         $this->view->generate('order_view.php', 'en/template_view.php');
@@ -136,12 +137,13 @@ class Controller_Order extends Controller
         }
 
         $this->model = new Order_Model;
-        print_r($order['mail']);
         $orderId = $this->model->createOrder($order);
-        $this->mailOrder($order['mail'], $orderId);
-        $this->mailManager($orderId);
-        $this->view->orders = $this->model->getOrders();
-        $this->view->generate('orderStatus_view.php', 'en/template_view.php');
+        if (isset($orderId)) {            
+            $this->mailOrder($order['mail'], $orderId);
+            $this->mailManager($orderId);
+            $this->view->orders = $this->model->getOrders();
+            $this->view->generate('orderStatus_view.php', 'en/template_view.php');
+        }
     }
 
     public function action_Status()
@@ -151,8 +153,6 @@ class Controller_Order extends Controller
         $this->view->orders = $this->model->getOrders();
         $this->view->generate('orderStatus_view.php', 'en/template_view.php');
     }
-
-    
 
     function UploadFile($file)
     {
@@ -209,7 +209,7 @@ class Controller_Order extends Controller
                 <div>Your Family order was succesfully added to the system with number</div>
                 <div >
                     <br>
-                    <h5>'.$orderId.'</h5>
+                    <h5>' . $orderId . '</h5>
                     <br>
                 </div>
                 <div>Progress in your order processing you can check on our website.</div>
