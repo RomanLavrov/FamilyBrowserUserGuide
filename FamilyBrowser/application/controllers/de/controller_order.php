@@ -159,8 +159,8 @@ class Controller_Order extends Controller
             }
         }
 
-        //$this->model = new Order_Model;
-        //$orderId = $this->model->createOrder($order);
+        $this->model = new Order_Model;
+        $orderId = $this->model->createOrder($order);
         if (isset($orderId)) {
             $this->mailOrder($_POST['mail'], $orderId);
             $this->mailManager($orderId, $order);
@@ -241,8 +241,11 @@ class Controller_Order extends Controller
     {
         ini_set('SMTP', "asmtp.mail.hostpoint.ch");
         ini_set('smtp_port', "465");
-        ini_set('sendmail_from', "no-reply@building360.ch");
-        ini_set('password', 'nUK2E253ZJA-WG7');
+        //ini_set('sendmail_from', "no-reply@building360.ch");
+        //ini_set('password', 'nUK2E253ZJA-WG7');
+
+        ini_set('sendmail_from', "support@building360.ch");
+        ini_set('password', 'BITImpactHub-2021');
 
         $to = $mailAdress; // 'johny@example.com, sally@example.com'; 
         $subject = 'Familie bestellen BUILDing360'; //Your order was successfully added to system
@@ -285,7 +288,7 @@ class Controller_Order extends Controller
         </html>';
 
         $headers = array(
-            'From' => 'no-reply@building360.ch',
+            'From' => 'support@building360.ch',
             'Reply-To' => 'admin@building360.ch',
             'Content-type' => 'text/html',
             'X-Mailer' => 'PHP/' . phpversion()
@@ -302,8 +305,11 @@ class Controller_Order extends Controller
 
         ini_set('SMTP', "asmtp.mail.hostpoint.ch");
         ini_set('smtp_port', "465");
-        ini_set('sendmail_from', "no-reply@building360.ch");
-        ini_set('password', 'nUK2E253ZJA-WG7');
+        //ini_set('sendmail_from', "no-reply@building360.ch");
+        //ini_set('password', 'nUK2E253ZJA-WG7');
+
+        ini_set('sendmail_from', "support@building360.ch");
+        ini_set('password', 'BITImpactHub-2021');
 
         $to = 'roman.lavrov@hhm.ch, daniel.wollenmann@hhm.ch, galina.gordienko@hhm.ch, roger.horat@hhm.ch';
         $subject = 'Neue Familienordnung'; //Your order was successfully added to system
@@ -391,7 +397,7 @@ class Controller_Order extends Controller
         ';
 
         $headers = array(
-            'From' => 'no-reply@building360.ch',
+            'From' => 'support@building360.ch',
             'Reply-To' => 'admin@building360.ch',
             'Content-type' => 'text/html',
             'X-Mailer' => 'PHP/' . phpversion(),
