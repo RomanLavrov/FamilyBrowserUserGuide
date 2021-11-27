@@ -61,7 +61,7 @@
             The electrical switch configurator Elektro Schalterkonfigurator is structured as follows:
       </p>
       <div class="d-flex justify-content-center modal-img-container">
-            <img class="search-imgs" src="/FamilyBrowser/images/combinator_structure_en.png" alt="">
+            <img class="search-imgs" src="/FamilyBrowser/images/Schalterkonfigurator mit Hager EN.png" alt="">
       </div>
       <p>
             The following video shows the usage exemplary:
