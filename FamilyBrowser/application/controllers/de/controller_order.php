@@ -422,7 +422,7 @@ class Controller_Order extends Controller
             </table>
 
             <div>
-                <a  href="https://help.building360.ch/FamilyBrowser/en/Order/Submit">Bestellstatus prüfen</a></div>
+                <a  href="https://help.building360.ch/FamilyBrowser/de/Order/Status">Bestellstatus prüfen</a></div>
             </div> 
              <br />
             <div>Mit freundlichen Grüßen,</div>

@@ -66,7 +66,7 @@
       <p>
             The following video shows the usage exemplary:
       </p>
-      <iframe class="embeded-video" src="https://www.youtube.com/embed/xV73T2km7jA?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <iframe class="embeded-video" src="https://www.youtube.com/embed/xV73T2km7jA?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 <div class="article-header-small">Functionality</div>
@@ -124,6 +124,19 @@
             The window can be left without placing a switch combination by clicking the “Close” button. The next time the configurator is opened, the last combination used will be shown.
       </p>
 </div>
+
+<div class="article-header-micro">Brand selection</div>
+<div class="article-content">
+      <p>
+            As of version 2022.1, it is possible to plan with the Hager product line for switches/socket outlets.
+            When starting the switch configurator for the first time, the two selection fields for " Brand" and "Colour" are disabled.
+            By clicking on the barcode icon, the manufacturer-specific selection can be activated and also deactivated.
+            As soon as a selection has been made for brand and colour,
+            the combination area shows if a previously planned component is not available in the selected brand/colour combination with a “prohibition” icon.
+      </p>
+</div>
+</div>
+
 
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-xl">

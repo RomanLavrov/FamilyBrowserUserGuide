@@ -68,12 +68,13 @@
             Der Elektro Schalterkonfigurator ist folgendermassen aufgebaut:
       </p>
       <div class="d-flex justify-content-center modal-img-container">
-            <img class="search-imgs" src="/FamilyBrowser/images/combinator_structure_de.png" alt="">
+            <img class="search-imgs" src="/FamilyBrowser/images/Schalterkonfigurator mit Hager DE.png" alt="">
       </div>
       <p>
             In folgendem Video wird die Anwendung beispielhaft gezeigt:
       </p>
-      <iframe class="embeded-video" src="https://www.youtube.com/embed/xV73T2km7jA?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <iframe class="embeded-video" src="https://www.youtube.com/embed/xV73T2km7jA?start=60" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 <div class="article-header-small">Funktionen</div>
 <div class="article-header-micro">Bauteilauswahl und Filterung</div>
@@ -128,6 +129,20 @@
       <p>
             Mit einem Klick auf den «Schliessen»-Button kann das Fenster ohne Platzierung einer Schalterkombination verlassen werden. Beim nächsten Öffnen des Konfigurators wird jeweils die zuletzt verwendete Kombination übernommen. </p>
 </div>
+
+<div class="article-header-micro">Fabrikatauswahl</div>
+<div class="article-content">
+      <p>
+            Seit der Version 2022.1 kann mit der Hager Produktlinie für Schalter/Steckdosen geplant werden.
+            Beim ersten Aufstarten des Schalterkonfigurators sind die beiden Auswahlfelder für «Fabrikat» und «Farbe» gesperrt.
+            Mit einem Klick auf das Barcode-Icon kann die herstellerspezifische Auswahl aktiviert und auch wieder deaktiviert werden.
+            Sobald eine Auswahl für Fabrikat und Farbe getroffen wurde, wird im Kombinationsbereich mit einem «Verbot»-Icon dargestellt,
+            wenn ein zuvor geplantes Bauteil nicht in der ausgewählten Fabrikat-/Farbkombination verfügbar ist.
+      </p>
+      <iframe class="embeded-video" src="https://www.youtube.com/embed/Usu82NjcKPI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+</div>
+
 
 <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-xl">
