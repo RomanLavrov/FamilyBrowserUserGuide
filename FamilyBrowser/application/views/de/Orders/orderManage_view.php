@@ -8,8 +8,6 @@
         <col span="1" style="width: 15%;">
         <col span="1" style="width: 10%;">
         <col span="1" style="width: 10%;">
-        <col span="1" style="width: 10%;">
-
     </colgroup>
 
     <thead class="thead-dark">
@@ -42,15 +40,15 @@
                         <div class="p-2 w-75"><?php print htmlentities($order['CreatedAt']) ?></div>
                     </div>
 
-                    <hr/>
+                    <hr />
                     <div class="d-flex flex-row">
-                        <div class="px-2 py-0">Kommentar/Nachricht:</div>                     
+                        <div class="px-2 py-0">Kommentar/Nachricht:</div>
                     </div>
                     <div class="p-2 text-break"><?php print htmlentities($order['Comment']) ?></div>
 
-                    <hr/>
+                    <hr />
                     <div class="d-flex flex-row">
-                        <div class="px-2 py-0">Andere:</div>                     
+                        <div class="px-2 py-0">Andere:</div>
                     </div>
                     <div class="p-2 text-break"><?php print htmlentities($order['OtherInfo']) ?></div>
 
