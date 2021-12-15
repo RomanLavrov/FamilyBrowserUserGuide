@@ -216,7 +216,7 @@ class Controller_Order extends Controller
         if (isset($_SESSION['userData'])) {
             $user = $_SESSION['userData'];
 
-            if ($user['idRoles'] != 3 && $user['idRoles'] != 4) {
+            if ($user['idRoles'] == 3 || $user['idRoles'] == 4) {
                 header('Location: /FamilyBrowser/de/Order/Status');
             } else {
                 $this->model = new Order_Model;
