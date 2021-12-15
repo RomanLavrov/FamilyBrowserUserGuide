@@ -124,7 +124,7 @@ class Controller_Order extends Controller
     ];
 
     private $installationMediumHVAC = [
-        'Abwasser',        
+        'Abwasser',
         'Brandschutz Andere',
         'Brandschutz Nass',
         'Brandschutz Trocken',
@@ -138,7 +138,7 @@ class Controller_Order extends Controller
         'Kaltwasser enthärtet 10°fH',
         'Kaltwasser enthärtet 12°fH',
         'Kaltwasser Netzdtuck',
-        'Kaltwasser reduzierter Druck',      
+        'Kaltwasser reduzierter Druck',
         'Luftkanal Abluft',
         'Luftkanal Aussenluft',
         'Luftkanal Fortluft',
@@ -146,11 +146,11 @@ class Controller_Order extends Controller
         'Regenwasser',
         'Regenwasser Bestehend',
         'Regenwasser Pluvia',
-        'Regenwasser Spengler',  
-        'Rohrdämmung Armaflex',     
+        'Regenwasser Spengler',
+        'Rohrdämmung Armaflex',
         'Rohrdämmung Mineralwolle',
-        'Rohrdämmung PIR', 
-        'Rohrdämmung Standard', 
+        'Rohrdämmung PIR',
+        'Rohrdämmung Standard',
         'Rücklauf',
         'Saugleitung',
         'Schmutzwasser',
@@ -165,7 +165,7 @@ class Controller_Order extends Controller
         'Trinkwasser',
         'Vorlauf',
         'Wascht',
-        'Wascht Druck|tg',        
+        'Wascht Druck|tg',
         'Warmwasser',
         'Zirkulation'
     ];
@@ -214,10 +214,16 @@ class Controller_Order extends Controller
     public function action_Manage()
     {
         if (isset($_SESSION['userData'])) {
-            $this->model = new Order_Model;
-            $this->view->statuses = $this->model->getStatuses();
-            $this->view->orders = $this->model->getOrders();
-            $this->view->generate('Orders/orderManage_view.php', 'de/template_view.php');
+            $user = $_SESSION['userData'];
+
+            if ($user['idRoles'] != 3 && $user['idRoles'] != 4) {
+                header('Location: /FamilyBrowser/de/Order/Status');
+            } else {
+                $this->model = new Order_Model;
+                $this->view->statuses = $this->model->getStatuses();
+                $this->view->orders = $this->model->getOrders();
+                $this->view->generate('Orders/orderManage_view.php', 'de/template_view.php');
+            }
         } else {
             header('Location: /FamilyBrowser/de/Auth/Login');
         }
