@@ -84,6 +84,7 @@
                 <a class="nav-button" target="_self" data-name="Installation" href="/FamilyBrowser/de/Installation">Installation</a>
                 <a class="nav-button" target="_self" data-name="Content" href="/FamilyBrowser/de/Content">Content</a>
                 <a class="nav-button" target="_self" data-name="Update" href="/FamilyBrowser/de/Update">Aktualisierung</a>
+                <a class="nav-button" target="_self" data-name="Release Notes" href="/FamilyBrowser/de/Release_History">Versionshistorie</a>
             </div>
 
             <button class="accordion">Funktionen</button>
