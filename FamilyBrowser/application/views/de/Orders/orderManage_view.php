@@ -23,6 +23,7 @@
     </thead>
 
     <tbody>
+
         <?php foreach ($this->orders as $order) : ?>
             <tr class="order" data-orderid=<?php print htmlentities($order['idOrders']) ?>>
                 <td style="text-align:center"><?php print htmlentities($order['idOrders']) ?></td>

@@ -196,6 +196,7 @@ class Controller_Order extends Controller
 
         $this->model = new Order_Model;
         $orderId = $this->model->createOrder($order);
+
         if (isset($orderId)) {
             $this->mailOrder($_POST['mail'], $orderId);
             $this->mailManager($orderId, $order);
@@ -331,7 +332,8 @@ class Controller_Order extends Controller
         $headers = array(
             'From' => 'support@building360.ch',
             'Reply-To' => 'admin@building360.ch',
-            'Content-type' => 'text/html',
+            'Content-type' => 'multipart/alternative',
+            'MIME-Version' => '1.0',
             'X-Mailer' => 'PHP/' . phpversion()
         );
 
